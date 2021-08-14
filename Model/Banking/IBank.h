@@ -10,13 +10,15 @@
 
 #include <list>
 
-namespace CapitalismSimulator::Banking {
+namespace CapitalismSimulator {
+namespace Banking {
 
 class IBank {
 private:
     int m_wealth;
     //std::list m_properties<IProperty>;
 };
+}
 } // namespace CapitalismSimulator::Banking
 
 #endif /* IBANK_H */

@@ -8,11 +8,13 @@
 #ifndef IACCOUNT_H
 #define IACCOUNT_H
 
-namespace CapitalismSimulator::Banking {
+namespace CapitalismSimulator {
+namespace Banking {
 
 class IAmount {
 
 };
+}
 } // namespace CapitalismSimulator::Banking
 
 #endif /* IAMOUNT_H */

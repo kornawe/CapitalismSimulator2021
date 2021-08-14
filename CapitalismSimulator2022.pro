@@ -18,6 +18,7 @@ HEADERS += \
     Model/Banking/ITransaction.h \
     Model/Chance/IDice.h \
     Model/Chance/IDie.h \
+    Model/Command/ICommand.h \
     Model/IAccount.h \
     Model/IBoard.h \
     Model/IJailStay.h \
