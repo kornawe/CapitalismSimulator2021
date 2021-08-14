@@ -6,7 +6,6 @@ namespace CapitalismSimulator::Chance {
     class IDice {
     public:
         virtual int Roll() const = 0;
-
     };
 
 } // namespace CapitalismSimulator::Model
