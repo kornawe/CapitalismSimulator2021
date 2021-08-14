@@ -10,9 +10,9 @@
 
 namespace CapitalismSimulator::Banking {
 
-class IAccount {
+class IAmount {
 
 };
 } // namespace CapitalismSimulator::Banking
 
-#endif /* IACCOUNT_H */
+#endif /* IAMOUNT_H */
