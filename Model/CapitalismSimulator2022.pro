@@ -9,28 +9,28 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Model/Chance/Die.cpp \
-    Model/main.cpp
+    Chance/Die.cpp \
+    main.cpp
 
 HEADERS += \
-    Model/Banking/IAccount.h \
-    Model/Banking/IAmount.h \
-    Model/Banking/IBank.h \
-    Model/Banking/ITransaction.h \
-	Model/Chance/Die.h \
-    Model/Chance/IDice.h \
-    Model/Chance/IDie.h \
-    Model/Command/ICommand.h \
-    Model/IAccount.h \
-    Model/IBoard.h \
-    Model/IJailStay.h \
-    Model/IMovement.h \
-    Model/IPlayer.h \
-    Model/ITransaction.h \
-    Model/Location/IJail.h \
-    Model/Location/ILocation.h \
-    Model/Location/IProperty.h \
-    Model/Location/IUtility.h
+    Banking/IAccount.h \
+    Banking/IAmount.h \
+    Banking/IBank.h \
+    Banking/ITransaction.h \
+	Chance/Die.h \
+    Chance/IDice.h \
+    Chance/IDie.h \
+    Command/ICommand.h \
+    IAccount.h \
+    IBoard.h \
+    IJailStay.h \
+    IMovement.h \
+    IPlayer.h \
+    ITransaction.h \
+    Location/IJail.h \
+    Location/ILocation.h \
+    Location/IProperty.h \
+    Location/IUtility.h
 
 FORMS +=
 
