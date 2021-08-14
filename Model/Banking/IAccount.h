@@ -14,14 +14,13 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
-template <typename T>
 class IAccount {
 public:
-    virtual void ApproveTransaction(ITransaction<T>* transaction) = 0;
-    virtual void PerformTransaction(ITransaction<T>* transaction) = 0;
-    virtual ITransaction<T>* CreateWithdrawal(IAmount<T>* amount) = 0;
-    virtual ITransaction<T>* CreateDeposit(IAmount<T>* amount) = 0;
-    virtual void CancelTransaction(ITransaction<T>* transaction) = 0;
+    virtual void ApproveTransaction(ITransaction* transaction) = 0;
+    virtual void PerformTransaction(ITransaction* transaction) = 0;
+    virtual ITransaction* CreateWithdrawal(IAmount* amount) = 0;
+    virtual ITransaction* CreateDeposit(IAmount* amount) = 0;
+    virtual void CancelTransaction(ITransaction* transaction) = 0;
 };
 }
 } // namespace CapitalismSimulator::Banking

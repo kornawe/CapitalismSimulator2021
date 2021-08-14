@@ -11,12 +11,25 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
+/*
+ * IAmount forward declaration allows pointers to this type to be created.
+ */
+class IAmount {};
+
+/*
+ * The amount class is generic to allow amounts of cash, cards, properties
+ * and others be created.
+ */
 template <typename T>
-class IAmount {
+class Amount : public IAmount {
 public:
-    IAmount(T amount);
-    virtual T GetAmount() = 0;
-protected:
+    Amount(T amount) {
+        m_amount = amount;
+    }
+    T GetAmount() {
+        return m_amount;
+    }
+private:
     T m_amount;
 };
 }
