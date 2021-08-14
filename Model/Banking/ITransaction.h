@@ -5,12 +5,12 @@
  *      Author: brandon
  */
 
-#ifndef MODEL_ITRANSACTION_H_
-#define MODEL_ITRANSACTION_H_
+#ifndef ITRANSACTION_H_
+#define ITRANSACTION_H_
 
-#include "Model/IAccount.h"
+#include "IAccount.h"
 
-namespace CapitalismSimulator::Model {
+namespace CapitalismSimulator::Banking {
 
 	class ITransaction {
 	public:
@@ -21,6 +21,6 @@ namespace CapitalismSimulator::Model {
 
 	};
 
-}  // namespace CapitalismSimulator::Model
+}  // namespace CapitalismSimulator::Banking
 
-#endif /* MODEL_ITRANSACTION_H_ */
+#endif /* ITRANSACTION_H_ */
