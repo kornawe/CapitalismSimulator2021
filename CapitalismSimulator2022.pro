@@ -14,6 +14,8 @@ SOURCES += \
 
 HEADERS += \
     Model/Banking/IAmount.h \
+    Model/Chance/IDice.h \
+    Model/Chance/IDie.h \
     Model/IAccount.h \
     Model/IBoard.h \
     Model/IJailStay.h \
