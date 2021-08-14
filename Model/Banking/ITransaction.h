@@ -20,17 +20,19 @@ namespace Banking {
 
 class ITransaction : public ICommand {
 public:
-    virtual IAmount Amount() const = 0;
+    virtual IAmount* Amount() const = 0;
     virtual IAccount* From() const = 0;
     virtual IAccount* To() const = 0;
     virtual void Execute() = 0;
     virtual void Undo() = 0;
     virtual void Redo() = 0;
 protected:
-    ITransaction(IAccount* from, IAccount* to, IAmount amount);
+    ITransaction(IAccount* from, IAccount* to, IAmount* amount);
     virtual ~ITransaction() = 0;
-private:
-    IAmount m_amount;
+
+    IAccount* m_from;
+    IAccount* m_to;
+    IAmount* m_amount;
     QString m_memo;
 };
 }
