@@ -13,6 +13,7 @@ SOURCES += \
     ViewModel/mainwindow.cpp
 
 HEADERS += \
+    Model/Banking/IAmount.h \
     Model/IAccount.h \
     Model/IBoard.h \
     Model/IJailStay.h \
