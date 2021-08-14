@@ -11,8 +11,13 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
+template <typename T>
 class IAmount {
-
+public:
+    IAmount(T amount);
+    virtual T GetAmount() = 0;
+protected:
+    T m_amount;
 };
 }
 } // namespace CapitalismSimulator::Banking

@@ -13,6 +13,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    Banking/CashAmount.h \
     Banking/IAccount.h \
     Banking/IAmount.h \
     Banking/IBank.h \
