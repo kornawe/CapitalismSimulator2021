@@ -1,3 +1,5 @@
+//#include "ViewModel/mainwindow.h"
+
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>

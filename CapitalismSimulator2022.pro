@@ -13,10 +13,14 @@ SOURCES += \
     Model/main.cpp
 
 HEADERS += \
+    Model/Banking/IAccount.h \
     Model/Banking/IAmount.h \
-    Model/Chance/Die.h \
+    Model/Banking/IBank.h \
+    Model/Banking/ITransaction.h \
+	Model/Chance/Die.h \
     Model/Chance/IDice.h \
     Model/Chance/IDie.h \
+    Model/Command/ICommand.h \
     Model/IAccount.h \
     Model/IBoard.h \
     Model/IJailStay.h \

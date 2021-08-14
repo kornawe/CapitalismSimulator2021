@@ -1,20 +1,24 @@
 /*
- * IAmount.h
+ * IBank.h
  *
  *  Created on: Aug 14, 2021
  *      Author: AJ Frank
  */
 
-#ifndef IACCOUNT_H
-#define IACCOUNT_H
+#ifndef IBANK_H
+#define IBANK_H
+
+#include <list>
 
 namespace CapitalismSimulator {
 namespace Banking {
 
-class IAmount {
-
+class IBank {
+private:
+    int m_wealth;
+    //std::list m_properties<IProperty>;
 };
 }
 } // namespace CapitalismSimulator::Banking
 
-#endif /* IAMOUNT_H */
+#endif /* IBANK_H */
