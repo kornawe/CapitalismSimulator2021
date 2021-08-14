@@ -9,8 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Model/main.cpp \
-    ViewModel/mainwindow.cpp
+    Model/main.cpp
 
 HEADERS += \
     Model/Banking/IAmount.h \
@@ -25,11 +24,9 @@ HEADERS += \
     Model/Location/IJail.h \
     Model/Location/ILocation.h \
     Model/Location/IProperty.h \
-    Model/Location/IUtility.h \
-    ViewModel/mainwindow.h
+    Model/Location/IUtility.h
 
-FORMS += \
-    View/mainwindow.ui
+FORMS +=
 
 TRANSLATIONS += \
     CapitalismSimulator2022_en_US.ts
