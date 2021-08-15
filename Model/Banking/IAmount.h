@@ -33,12 +33,17 @@ public:
         }
     }
 
+    // Get the cash value
     int GetCashAmount() {
         return m_cash;
     }
+
+    // Get the list of properties included
     QList<void* /*IProperty*/> GetProperties() {
         return m_properties;
     }
+
+    // Get the list of cards included
     QList<void* /*ICard*/> GetCards() {
         return m_cards;
     }

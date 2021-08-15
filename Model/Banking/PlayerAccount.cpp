@@ -1,4 +1,5 @@
 #include "PlayerAccount.h"
+#include "ITransaction.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
@@ -13,13 +14,13 @@ void PlayerAccount::RemoveFromAccount(IAmount *amount) {
     return;
 }
 
-void PlayerAccount::Trade(IAccount *otherAccount,
+void PlayerAccount::PerformTrade(IAccount *otherAccount,
                           IAmount *otherAccountOffer,
                           IAmount *otherAccountRequest) {
-    otherAccount->RemoveFromAccount(otherAccountOffer);
-    this->AddToAccount(otherAccountOffer);
-    this->RemoveFromAccount(otherAccountRequest);
-    otherAccount->AddToAccount(otherAccountRequest);
+    ITransaction toThisAccount(otherAccount, this, otherAccountOffer);
+    ITransaction fromThisAccount(this, otherAccount, otherAccountRequest);
+    toThisAccount.Execute();
+    fromThisAccount.Execute();
     return;
 }
 

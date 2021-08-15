@@ -18,9 +18,12 @@ class IAccount {
 public:
     IAccount(int wealth);
 
+    // Add assets to this account
     virtual void AddToAccount(IAmount* amount) = 0;
+    // Remove assets from this account
     virtual void RemoveFromAccount(IAmount* amount) = 0;
-    virtual void Trade(IAccount *otherAccount,
+    //Trade assets with another player.
+    virtual void PerformTrade(IAccount *otherAccount,
                        IAmount *otherAccountOffer,
                        IAmount *otherAccountRequest) = 0;
 protected:

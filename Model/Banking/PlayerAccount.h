@@ -1,3 +1,10 @@
+/*
+ * PlayerAccount.h
+ *
+ *  Created on: Aug 14, 2021
+ *      Author: AJ Frank
+ */
+
 #ifndef PLAYERACCOUNT_H
 #define PLAYERACCOUNT_H
 
@@ -15,7 +22,7 @@ public:
 
     void AddToAccount(IAmount *amount) override;
     void RemoveFromAccount(IAmount *amount) override;
-    void Trade(IAccount *otherAccount,
+    void PerformTrade(IAccount *otherAccount,
                IAmount *otherAccountOffer,
                IAmount *otherAccountRequest) override;
 };
