@@ -15,6 +15,9 @@ public:
 
     void AddToAccount(IAmount *amount) override;
     void RemoveFromAccount(IAmount *amount) override;
+    void Trade(IAccount *otherAccount,
+               IAmount *otherAccountOffer,
+               IAmount *otherAccountRequest) override;
 };
 }
 }

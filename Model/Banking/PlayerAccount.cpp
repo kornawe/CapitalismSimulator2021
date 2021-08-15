@@ -13,5 +13,15 @@ void PlayerAccount::RemoveFromAccount(IAmount *amount) {
     return;
 }
 
+void PlayerAccount::Trade(IAccount *otherAccount,
+                          IAmount *otherAccountOffer,
+                          IAmount *otherAccountRequest) {
+    otherAccount->RemoveFromAccount(otherAccountOffer);
+    this->AddToAccount(otherAccountOffer);
+    this->RemoveFromAccount(otherAccountRequest);
+    otherAccount->AddToAccount(otherAccountRequest);
+    return;
+}
+
 }
 }
