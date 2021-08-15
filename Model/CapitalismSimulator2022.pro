@@ -9,16 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Banking/CashTransaction.cpp \
+    Banking/PlayerAccount.cpp \
+    Banking/Transaction.cpp \
     Chance/Die.cpp \
     main.cpp
 
 HEADERS += \
-    Banking/CashTransaction.h \
     Banking/IAccount.h \
     Banking/IAmount.h \
     Banking/IBank.h \
     Banking/ITransaction.h \
+    Banking/PlayerAccount.h \
 	Chance/Die.h \
     Chance/IDice.h \
     Chance/IDie.h \

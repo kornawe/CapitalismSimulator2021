@@ -8,7 +8,6 @@
 #ifndef IACCOUNT_H_
 #define IACCOUNT_H_
 
-#include "ITransaction.h"
 #include "IAmount.h"
 
 namespace CapitalismSimulator {
@@ -16,11 +15,12 @@ namespace Banking {
 
 class IAccount {
 public:
-    virtual void ApproveTransaction(ITransaction* transaction) = 0;
-    virtual void PerformTransaction(ITransaction* transaction) = 0;
-    virtual ITransaction* CreateWithdrawal(IAmount* amount) = 0;
-    virtual ITransaction* CreateDeposit(IAmount* amount) = 0;
-    virtual void CancelTransaction(ITransaction* transaction) = 0;
+    IAccount(int wealth);
+
+    virtual void AddToAccount(IAmount* amount) = 0;
+    virtual void RemoveFromAccount(IAmount* amount) = 0;
+protected:
+    int m_wealth;
 };
 }
 } // namespace CapitalismSimulator::Banking

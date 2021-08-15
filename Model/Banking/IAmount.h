@@ -8,29 +8,44 @@
 #ifndef IACCOUNT_H
 #define IACCOUNT_H
 
+#include <QList>
+
 namespace CapitalismSimulator {
 namespace Banking {
 
 /*
- * IAmount forward declaration allows pointers to this type to be created.
+ * IAmount holds transaction amounts, and transactions are typically cash,
+ * but sometimes might include assets like property deeds or chance/
+ * community chest cards.
  */
-class IAmount {};
-
-/*
- * The amount class is generic to allow amounts of cash, cards, properties
- * and others be created.
- */
-template <typename T>
-class Amount : public IAmount {
+class IAmount {
 public:
-    Amount(T amount) {
-        m_amount = amount;
+    IAmount(int cash,
+            QList<void* /*IProperty*/>* properties,
+            QList<void* /*ICard*/>* cards) {
+        m_cash = cash;
+        // check for nullptr before setting member variables
+        if (properties) {
+            m_properties = *properties;
+        }
+        if (cards) {
+            m_cards = *cards;
+        }
     }
-    T GetAmount() {
-        return m_amount;
+
+    int GetCashAmount() {
+        return m_cash;
     }
-private:
-    T m_amount;
+    QList<void* /*IProperty*/> GetProperties() {
+        return m_properties;
+    }
+    QList<void* /*ICard*/> GetCards() {
+        return m_cards;
+    }
+protected:
+    int m_cash;
+    QList<void* /*IProperty*/> m_properties;
+    QList<void* /*IProperty*/> m_cards;
 };
 }
 } // namespace CapitalismSimulator::Banking
