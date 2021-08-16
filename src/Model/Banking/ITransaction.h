@@ -11,7 +11,7 @@
 #include <QString>
 #include "IAccount.h"
 #include "IAmount.h"
-#include "Command/ICommand.h"
+#include "Model/Command/ICommand.h"
 
 using namespace CapitalismSimulator::Command;
 
