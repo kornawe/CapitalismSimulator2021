@@ -11,7 +11,7 @@
 #include <QString>
 #include "IAccount.h"
 #include "IAmount.h"
-#include "Model/Command/ICommand.h"
+#include "../Command/ICommand.h"
 
 using namespace CapitalismSimulator::Command;
 
@@ -21,6 +21,7 @@ namespace Banking {
 class ITransaction : public ICommand {
 public:
     ITransaction(IAccount *from, IAccount *to, IAmount *amount);
+    virtual ~ITransaction() {}
 
     IAmount* Amount() const {
         return m_amount;

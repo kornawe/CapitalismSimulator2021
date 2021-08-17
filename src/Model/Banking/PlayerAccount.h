@@ -15,11 +15,12 @@ namespace Banking {
 
 class PlayerAccount : public IAccount {
 public:
-    PlayerAccount(int wealth) : IAccount(wealth) {
+    PlayerAccount(int wealth) {
         this->m_wealth = wealth;
     }
-    ~PlayerAccount() {};
+    virtual ~PlayerAccount() {};
 
+    int AvailableWealth() override;
     void AddToAccount(IAmount *amount) override;
     void RemoveFromAccount(IAmount *amount) override;
     void PerformTrade(IAccount *otherAccount,

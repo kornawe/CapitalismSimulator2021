@@ -16,8 +16,8 @@ namespace Banking {
 
 class IAccount {
 public:
-    IAccount(int wealth);
-
+    // Get the amount of cash available
+    virtual int AvailableWealth() = 0;
     // Add assets to this account
     virtual void AddToAccount(IAmount* amount) = 0;
     // Remove assets from this account

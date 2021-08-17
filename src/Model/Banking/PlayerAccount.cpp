@@ -4,6 +4,10 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
+int PlayerAccount::AvailableWealth() {
+    return m_wealth;
+}
+
 void PlayerAccount::AddToAccount(IAmount *amount) {
     m_wealth += amount->GetCashAmount();
     return;
