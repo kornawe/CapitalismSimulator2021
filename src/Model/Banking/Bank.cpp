@@ -1,16 +1,30 @@
-#include "IBank.h"
+#include "Bank.h"
 #include "ITransaction.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
 
-void IBank::ChargePlayer(IAccount *toCharge, IAmount *amount) {
+Bank::Bank(int wealth)
+{
+    m_account = new PlayerAccount(wealth);
+    // TODO: create list of all properties, create a new amount with all
+    // properties, then add to the bank's account
+    QList<void* /*IProperty*/> *properties;
+    properties = new QList<void*>;
+    m_account->AddToAccount(new IAmount(0, properties, nullptr));
+}
+
+Bank::~Bank() {
+    delete m_account;
+}
+
+void Bank::ChargePlayer(IAccount* toCharge, IAmount* amount) {
     ITransaction tx(toCharge, m_account, amount);
     tx.Execute();
     return;
 }
 
-void IBank::PayPlayer(IAccount *toPay, IAmount *amount) {
+void Bank::PayPlayer(IAccount *toPay, IAmount *amount) {
     ITransaction tx(m_account, toPay, amount);
     tx.Execute();
     return;

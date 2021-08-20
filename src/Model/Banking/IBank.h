@@ -15,19 +15,13 @@ namespace Banking {
 
 class IBank {
 public:
-    IBank(int wealth) {
-        m_account = new PlayerAccount(wealth);
-        // TODO: create list of all properties, create a new amount with all
-        // properties, then add to the bank's account
-        QList<void* /*IProperty*/> *properties;
-        properties = new QList<void*>;
-        m_account->AddToAccount(new IAmount(0, properties, nullptr));
-    };
+    IBank() {};
+    virtual ~IBank() {};
 
-    void ChargePlayer(IAccount* toCharge, IAmount* amount);
-    void PayPlayer(IAccount* toPay, IAmount* amount);
+    virtual void ChargePlayer(IAccount* toCharge, IAmount* amount) = 0;
+    virtual void PayPlayer(IAccount* toPay, IAmount* amount) = 0;
 
-private:
+protected:
     PlayerAccount* m_account;
 };
 }

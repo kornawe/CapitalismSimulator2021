@@ -6,7 +6,6 @@
 // add necessary includes here
 #include "Banking/ITransaction.h"
 #include "Banking/IAmount.h"
-#include "Banking/IAccount.h"
 #include "Banking/PlayerAccount.h"
 
 using namespace CapitalismSimulator::Banking;

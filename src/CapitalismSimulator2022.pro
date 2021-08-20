@@ -16,6 +16,7 @@ SOURCES += \
     Model/main.cpp
 
 HEADERS += \
+    Model/Banking/Bank.h \
     Model/Banking/IAccount.h \
     Model/Banking/IAmount.h \
     Model/Banking/IBank.h \

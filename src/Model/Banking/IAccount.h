@@ -16,6 +16,9 @@ namespace Banking {
 
 class IAccount {
 public:
+    IAccount() {};
+    virtual ~IAccount() {};
+
     // Get the amount of cash available
     virtual int AvailableWealth() = 0;
     // Add assets to this account
