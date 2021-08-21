@@ -22,6 +22,7 @@ HEADERS += \
     Model/Banking/IBank.h \
     Model/Banking/ITransaction.h \
     Model/Banking/PlayerAccount.h \
+    Model/Banking/Transaction.h \
     Model/Chance/Die.h \
     Model/Chance/IDice.h \
     Model/Chance/IDie.h \

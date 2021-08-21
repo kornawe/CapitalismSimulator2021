@@ -1,7 +1,7 @@
 #include "tst_testtransaction.h"
 
 TestTransaction::TestTransaction() {
-    CuT = new ITransaction(nullptr, nullptr, nullptr);
+    CuT = new Transaction(nullptr, nullptr, nullptr);
 
     amount = new IAmount(0, nullptr, nullptr);
     acct_one = new PlayerAccount(0);
@@ -29,7 +29,7 @@ void TestTransaction::testAmountGetter() {
     amount = new IAmount(expected_cash, nullptr, nullptr);
 
     // Setup component under test with friend object
-    CuT = new ITransaction(nullptr, nullptr, amount);
+    CuT = new Transaction(nullptr, nullptr, amount);
 
     IAmount* actual = CuT->Amount();
     QCOMPARE(amount, actual);
@@ -45,7 +45,7 @@ void TestTransaction::testAccountFromGetter() {
     acct_one = new PlayerAccount(expected_cash);
 
     // Setup component under test with friend object
-    CuT = new ITransaction(acct_one, nullptr, nullptr);
+    CuT = new Transaction(acct_one, nullptr, nullptr);
 
     IAccount* actual = CuT->From();
     QCOMPARE(acct_one, actual);
@@ -61,7 +61,7 @@ void TestTransaction::testAccountToGetter() {
     acct_one = new PlayerAccount(expected_cash);
 
     // Setup component under test with friend object
-    CuT = new ITransaction(nullptr, acct_one, nullptr);
+    CuT = new Transaction(nullptr, acct_one, nullptr);
 
     IAccount* actual = CuT->To();
     QCOMPARE(acct_one, actual);
@@ -84,7 +84,7 @@ void TestTransaction::testExecuteTransactionOfCash() {
 
     // Setup CuT as a Transaction to send all cash from acct_one
     // to acct_two
-    CuT = new ITransaction(acct_one, acct_two, amount);
+    CuT = new Transaction(acct_one, acct_two, amount);
 
     CuT->Execute();
 
@@ -111,7 +111,7 @@ void TestTransaction::testUndoTransactionOfCash() {
 
     // Setup CuT as a Transaction to send all cash from acct_one
     // to acct_two
-    CuT = new ITransaction(acct_one, acct_two, amount);
+    CuT = new Transaction(acct_one, acct_two, amount);
 
     CuT->Execute();
 
@@ -141,7 +141,7 @@ void TestTransaction::testRedoTransactionOfCash() {
 
     // Setup CuT as a Transaction to send all cash from acct_one
     // to acct_two
-    CuT = new ITransaction(acct_one, acct_two, amount);
+    CuT = new Transaction(acct_one, acct_two, amount);
 
     CuT->Execute();
     CuT->Undo();

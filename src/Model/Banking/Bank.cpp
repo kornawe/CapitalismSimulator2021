@@ -1,5 +1,5 @@
 #include "Bank.h"
-#include "ITransaction.h"
+#include "Transaction.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
@@ -19,13 +19,13 @@ Bank::~Bank() {
 }
 
 void Bank::ChargePlayer(IAccount* toCharge, IAmount* amount) {
-    ITransaction tx(toCharge, m_account, amount);
+    Transaction tx(toCharge, m_account, amount);
     tx.Execute();
     return;
 }
 
 void Bank::PayPlayer(IAccount *toPay, IAmount *amount) {
-    ITransaction tx(m_account, toPay, amount);
+    Transaction tx(m_account, toPay, amount);
     tx.Execute();
     return;
 }

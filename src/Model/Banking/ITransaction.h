@@ -20,7 +20,7 @@ namespace Banking {
 
 class ITransaction : public ICommand {
 public:
-    ITransaction(IAccount *from, IAccount *to, IAmount *amount);
+    ITransaction() {};
     virtual ~ITransaction() {}
 
     IAmount* Amount() const {
@@ -32,18 +32,11 @@ public:
     IAccount* To() const {
         return m_to;
     }
-
-    // ICommand method overrides
-    void Execute() override;
-    void Undo() override;
-    void Redo() override;
 protected:
     IAccount* m_from;
     IAccount* m_to;
     IAmount* m_amount;
     QString m_memo;
-private:
-    ITransaction() {};
 };
 }
 }  // namespace CapitalismSimulator::Banking

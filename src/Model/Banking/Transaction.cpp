@@ -1,27 +1,27 @@
-#include "ITransaction.h"
+#include "Transaction.h"
 
 namespace CapitalismSimulator{
 namespace Banking {
 
-ITransaction::ITransaction(IAccount* from, IAccount* to, IAmount* amount) {
+Transaction::Transaction(IAccount* from, IAccount* to, IAmount* amount) {
     m_from = from;
     m_to = to;
     m_amount = amount;
 }
 
-void ITransaction::Execute() {
+void Transaction::Execute() {
     m_from->RemoveFromAccount(m_amount);
     m_to->AddToAccount(m_amount);
     return;
 }
 
-void ITransaction::Undo() {
+void Transaction::Undo() {
     m_to->RemoveFromAccount(m_amount);
     m_from->AddToAccount(m_amount);
     return;
 }
 
-void ITransaction::Redo() {
+void Transaction::Redo() {
     this->Execute();
     return;
 }

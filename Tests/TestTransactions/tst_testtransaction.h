@@ -4,7 +4,7 @@
 #include <QtTest>
 
 // add necessary includes here
-#include "Banking/ITransaction.h"
+#include "Banking/Transaction.h"
 #include "Banking/IAmount.h"
 #include "Banking/PlayerAccount.h"
 

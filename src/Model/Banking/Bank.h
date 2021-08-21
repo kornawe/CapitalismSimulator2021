@@ -1,3 +1,10 @@
+/*
+ * Bank.h
+ *
+ *  Created on: Aug 20, 2021
+ *      Author: AJ Frank
+ */
+
 #ifndef BANK_H
 #define BANK_H
 
