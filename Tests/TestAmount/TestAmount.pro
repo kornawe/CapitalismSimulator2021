@@ -6,6 +6,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
+INCLUDEPATH += ../../src/Model
+
 SOURCES +=  tst_testamount.cpp
 
 HEADERS += \

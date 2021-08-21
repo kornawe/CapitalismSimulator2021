@@ -4,7 +4,7 @@
 #include <QtTest>
 
 // add necessary includes here
-#include "../../src/Model/Banking/IAmount.h"
+#include "Banking/IAmount.h"
 
 using namespace CapitalismSimulator::Banking;
 
