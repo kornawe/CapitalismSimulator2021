@@ -1,15 +1,15 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef NORMALBOARD_H
+#define NORMALBOARD_H
 
 #include "IBoard.h"
 
 namespace CapitalismSimulator {
 namespace Board {
 
-class Board : public IBoard {
+class NormalBoard : public IBoard {
 public:
-    Board(int sideLength);
-    ~Board();
+    NormalBoard(int sideLength);
+    ~NormalBoard();
 
     int SideLength() override;
     IBank * Bank() override;
@@ -25,4 +25,4 @@ public:
 }
 }
 
-#endif // BOARD_H
+#endif // NORMALBOARD_H

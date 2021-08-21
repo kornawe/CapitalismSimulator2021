@@ -4,8 +4,7 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
-Bank::Bank(int wealth)
-{
+Bank::Bank(int wealth) {
     m_account = new PlayerAccount(wealth);
     // TODO: create list of all properties, create a new amount with all
     // properties, then add to the bank's account
