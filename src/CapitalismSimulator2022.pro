@@ -26,12 +26,9 @@ HEADERS += \
     Model/Chance/IDice.h \
     Model/Chance/IDie.h \
     Model/Command/ICommand.h \
-    Model/IAccount.h \
     Model/IBoard.h \
-    Model/IJailStay.h \
     Model/IMovement.h \
     Model/IPlayer.h \
-    Model/ITransaction.h \
     Model/Location/IJail.h \
     Model/Location/ILocation.h \
     Model/Location/IProperty.h \
