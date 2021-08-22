@@ -9,10 +9,16 @@
 #define MODEL_IPLAYER_H_
 
 #include <string>
-#include "Model/IAccount.h"
 
 
-namespace CapitalismSimulator::Model {
+namespace CapitalismSimulator {
+
+namespace Banking {
+    class IAccount;
+}
+using namespace Banking;
+
+namespace Model {
 
 	class IPlayer {
 	public:
@@ -22,7 +28,7 @@ namespace CapitalismSimulator::Model {
         virtual IAccount* Account() const = 0;
 
 	};
-
+}
 }  // namespace CapitalismSimulator::Model
 
 #endif /* MODEL_IPLAYER_H_ */
