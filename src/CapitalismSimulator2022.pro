@@ -14,6 +14,7 @@ SOURCES += \
     Model/Banking/Transaction.cpp \
     Model/Board/NormalBoard.cpp \
     Model/Chance/Die.cpp \
+    Model/Location/Jail.cpp \
     Model/main.cpp
 
 HEADERS += \
@@ -32,10 +33,10 @@ HEADERS += \
     Model/Command/ICommand.h \
     Model/IMovement.h \
     Model/IPlayer.h \
-    Model/Location/IJail.h \
     Model/Location/ILocation.h \
     Model/Location/IProperty.h \
-    Model/Location/IUtility.h
+    Model/Location/IUtility.h \
+    Model/Location/Jail.h
 
 FORMS +=
 

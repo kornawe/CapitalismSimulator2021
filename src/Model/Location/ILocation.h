@@ -5,8 +5,10 @@
  *      Author: brandon, AJ Frank
  */
 
-#ifndef MODEL_ILOCATION_H_
-#define MODEL_ILOCATION_H_
+#ifndef ILOCATION_H_
+#define ILOCATION_H_
+
+#include <QList>
 
 namespace CapitalismSimulator {
 
@@ -16,6 +18,8 @@ namespace Model {
 }
 namespace Banking {
     class IAmount;
+    class IAccount;
+    class IBank;
 }
 using namespace Model;
 using namespace Banking;
@@ -24,7 +28,7 @@ namespace Location {
 
 class ILocation {
 public:
-    ILocation() {};
+    ILocation(__attribute__((unused)) IBank *bank) {};
     virtual ~ILocation() {};
 
     ///
@@ -47,9 +51,31 @@ public:
     /// \param amount: the Fee to be paid.
     ///
     virtual void Pay(IPlayer *player, IAmount *amount) = 0;
+    ///
+    /// \brief Get the Invoice for this Location
+    /// \param player: The player who the Invoice is for.
+    /// \return IAmount representing the assets required to satisfy the Invoice
+    ///
+    virtual IAmount * GetInvoice(IPlayer *player) = 0;
+    ///
+    /// \brief Set the owner of this Location
+    /// \param account: The account that belongs to the owner of this Location.
+    ///
+    virtual void SetOwner(IAccount *account) = 0;
+    ///
+    /// \brief Set a cash amount to be required by this Location. This has
+    /// should only be used by a select few kinds of ILocation.
+    /// \param player: The player this amount is tied to.
+    /// \param cash: The amount of cash required to satisfy this Location's
+    /// Invoice.
+    ///
+    virtual void SetRequiredPayment(IPlayer *player, int cash) = 0;
+protected:
+    IAccount *m_ownerAccount;
+    QList<IPlayer *> *m_players;
 };
 }
 }  // namespace CapitalismSimulator::Location
 
 
-#endif /* MODEL_ILOCATION_H_ */
+#endif /* ILOCATION_H_ */
