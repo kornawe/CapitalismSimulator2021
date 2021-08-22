@@ -31,5 +31,9 @@ void Bank::PayPlayer(IAccount *toPay, IAmount *amount) {
     return;
 }
 
+IAccount * Bank::Account(void) {
+    return m_account;
+}
+
 }
 }
