@@ -16,7 +16,11 @@ namespace CapitalismSimulator {
 namespace Banking {
     class IBank;
 }
+namespace Location {
+    class ILocation;
+}
 using namespace Banking;
+using namespace Location;
 
 namespace Board {
 
@@ -80,7 +84,7 @@ protected:
     // The Bank used for this Board
     IBank *m_bank;
     // The list of Locations on this Board
-    QList<void */* ILocation */> *m_locations;
+    QList<ILocation *> *m_locations;
     // The list of Fortune cards being used with this Board
     QList<void */* ICard */> *m_fortuneCards;
     // The list of Company Cabinet cards being used with this Board

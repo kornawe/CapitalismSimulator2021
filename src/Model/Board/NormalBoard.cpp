@@ -7,7 +7,7 @@ namespace Board {
 NormalBoard::NormalBoard(int sideLength) {
     m_sideLength = sideLength;
     m_bank = new CapitalismSimulator::Banking::Bank(0);
-    m_locations = new QList<void *>(m_sideLength);
+    m_locations = new QList<ILocation *>(m_sideLength);
     m_fortuneCards = new QList<void *>(1);
     m_coCabinetCards = new QList<void *>(1);
 }
