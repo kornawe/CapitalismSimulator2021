@@ -24,30 +24,44 @@ IBank * NormalBoard::Bank() {
     return m_bank;
 }
 
+int NormalBoard::FortuneCardCount() {
+    return m_fortuneCards->count();
+}
+
 void * NormalBoard::DrawFortuneCard() {
-    void *temp = 0;
-    return temp;
+    void *top_of_pile = m_fortuneCards->first();
+    m_fortuneCards->removeFirst();
+    return top_of_pile;
 }
 
-void NormalBoard::ReturnFortuneCard(void *card) {
-    return;
+int NormalBoard::ReturnFortuneCard(void *card) {
+    m_fortuneCards->append(card);
+    return m_fortuneCards->count();
 }
 
-void NormalBoard::ShuffleFortuneCards() {
-    return;
+bool NormalBoard::ShuffleFortuneCards() {
+    // TODO: implement shuffling
+    return true;
+}
+
+int NormalBoard::CompanyCabinetCardCount() {
+    return m_coCabinetCards->count();
 }
 
 void * NormalBoard::DrawCompanyCabinetCard() {
-    void *temp = 0;
-    return temp;
+    void *top_of_pile = m_coCabinetCards->first();
+    m_coCabinetCards->removeFirst();
+    return top_of_pile;
 }
 
-void NormalBoard::ReturnCompanyCabinetCard(void *card) {
-    return;
+int NormalBoard::ReturnCompanyCabinetCard(void *card) {
+    m_coCabinetCards->append(card);
+    return m_coCabinetCards->count();
 }
 
-void NormalBoard::ShuffleCompanyCabinetCards() {
-    return;
+bool NormalBoard::ShuffleCompanyCabinetCards() {
+    // TODO: implement shuffling
+    return true;
 }
 
 }
