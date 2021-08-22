@@ -15,6 +15,7 @@ SOURCES += \
     Model/Board/NormalBoard.cpp \
     Model/Chance/Die.cpp \
     Model/Location/Jail.cpp \
+    Model/Player/IPlayer.cpp \
     Model/main.cpp
 
 HEADERS += \
@@ -32,11 +33,11 @@ HEADERS += \
     Model/Chance/IDie.h \
     Model/Command/ICommand.h \
     Model/IMovement.h \
-    Model/IPlayer.h \
     Model/Location/ILocation.h \
     Model/Location/IProperty.h \
     Model/Location/IUtility.h \
-    Model/Location/Jail.h
+    Model/Location/Jail.h \
+    Model/Player/IPlayer.h
 
 FORMS +=
 

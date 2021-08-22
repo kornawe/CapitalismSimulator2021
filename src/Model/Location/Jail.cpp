@@ -2,7 +2,7 @@
 #include "../Banking/IBank.h"
 #include "../Banking/IAmount.h"
 #include "../Banking/Transaction.h"
-#include "../IPlayer.h"
+#include "../Player/IPlayer.h"
 
 namespace CapitalismSimulator {
 namespace Location {
@@ -14,18 +14,26 @@ Jail::Jail(IBank *bank) : ILocation(bank) {
 
 Jail::~Jail() {
     delete m_players;
+    delete m_ledger;
 }
 
 bool Jail::LandOn(IPlayer *player) {
     m_players->append(player);
     // If the player has a balance, they must pay it.
-    bool mustPay = m_ledger->value(player) != 0;
+    bool mustPay = false;
+    if (m_ledger->contains(player)) {
+        mustPay = m_ledger->value(player) != 0;
+    };
     return mustPay;
 }
 
 bool Jail::RequestExit(IPlayer *player) {
     // A player may exit if they have paid their balance.
-    return m_ledger->value(player) == 0;
+    bool canExit = true;
+    if (m_ledger->contains(player)) {
+        canExit = m_ledger->value(player) == 0;
+    }
+    return canExit;
 }
 
 void Jail::Pay(IPlayer *player, IAmount *amount) {

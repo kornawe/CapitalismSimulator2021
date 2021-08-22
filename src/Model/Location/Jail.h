@@ -14,7 +14,7 @@
 namespace CapitalismSimulator {
 namespace Location {
 
-class Jail : ILocation {
+class Jail : public ILocation {
 public:
     Jail(IBank *bank);
     ~Jail();

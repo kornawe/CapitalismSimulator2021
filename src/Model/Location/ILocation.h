@@ -13,7 +13,7 @@
 namespace CapitalismSimulator {
 
 // Forward Declarations
-namespace Model {
+namespace Player {
     class IPlayer;
 }
 namespace Banking {
@@ -21,7 +21,7 @@ namespace Banking {
     class IAccount;
     class IBank;
 }
-using namespace Model;
+using namespace Player;
 using namespace Banking;
 
 namespace Location {
