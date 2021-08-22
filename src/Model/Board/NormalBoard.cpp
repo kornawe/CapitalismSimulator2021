@@ -1,19 +1,24 @@
 #include "NormalBoard.h"
+#include "Model/Banking/Bank.h"
 
-namespace Capitalismsimulator {
+namespace CapitalismSimulator {
 namespace Board {
 
-NormalBoard::Board(int sideLength) {
+NormalBoard::NormalBoard(int sideLength) {
     m_sideLength = sideLength;
-    m_bank = new Bank(0);
+    m_bank = new CapitalismSimulator::Banking::Bank(0);
 }
 
-NormalBoard::~Board() {
+NormalBoard::~NormalBoard() {
     delete m_bank;
 }
 
 int NormalBoard::SideLength() {
     return m_sideLength;
+}
+
+IBank * NormalBoard::Bank() {
+    return m_bank;
 }
 
 void * NormalBoard::DrawFortuneCard() {

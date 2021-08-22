@@ -9,12 +9,17 @@
 #define IBOARD_H
 
 #include <QList>
-#include "../Banking/Bank.h"
-
-using namespace CapitalismSimulator::Banking;
 
 namespace CapitalismSimulator {
+
+// Forward Declaration
+namespace Banking {
+    class IBank;
+}
+using namespace Banking;
+
 namespace Board {
+
 
 class IBoard {
 public:

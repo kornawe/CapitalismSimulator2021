@@ -8,10 +8,12 @@
 #ifndef IBANK_H
 #define IBANK_H
 
-#include "PlayerAccount.h"
-
 namespace CapitalismSimulator {
 namespace Banking {
+
+class IAccount;
+class IAmount;
+class PlayerAccount;
 
 class IBank {
 public:

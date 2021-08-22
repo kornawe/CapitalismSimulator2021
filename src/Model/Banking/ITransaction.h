@@ -9,14 +9,15 @@
 #define ITRANSACTION_H_
 
 #include <QString>
-#include "IAccount.h"
-#include "IAmount.h"
 #include "../Command/ICommand.h"
 
 using namespace CapitalismSimulator::Command;
 
 namespace CapitalismSimulator {
 namespace Banking {
+
+class IAccount;
+class IAmount;
 
 class ITransaction : public ICommand {
 public:

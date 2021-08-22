@@ -1,5 +1,7 @@
 #include "Bank.h"
 #include "Transaction.h"
+#include "PlayerAccount.h"
+#include "IAmount.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
