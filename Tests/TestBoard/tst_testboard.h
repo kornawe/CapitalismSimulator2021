@@ -21,9 +21,11 @@ private slots:
     void cleanup();
     void testSideLength();
     void testBankAccessor();
+    void testFortuneCardCount();
     void testDrawFortuneCard();
     void testReturnFortuneCard();
     void testShuffleFortuneCards();
+    void testCompanyCabinetCardCount();
     void testDrawCompanyCabinetCard();
     void testReturnCompanyCabinetCard();
     void testShuffleCompanyCabinetCards();

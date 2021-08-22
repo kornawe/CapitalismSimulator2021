@@ -14,13 +14,15 @@ public:
     int SideLength() override;
     IBank * Bank() override;
 
+    int FortuneCardCount() override;
     void * DrawFortuneCard() override;
-    void ReturnFortuneCard(void *card) override;
-    void ShuffleFortuneCards() override;
+    int ReturnFortuneCard(void *card) override;
+    bool ShuffleFortuneCards() override;
 
+    int CompanyCabinetCardCount() override;
     void * DrawCompanyCabinetCard() override;
-    void ReturnCompanyCabinetCard(void *card) override;
-    void ShuffleCompanyCabinetCards() override;
+    int ReturnCompanyCabinetCard(void *card) override;
+    bool ShuffleCompanyCabinetCards() override;
 };
 }
 }

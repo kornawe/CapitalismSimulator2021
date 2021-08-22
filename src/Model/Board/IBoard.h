@@ -30,13 +30,49 @@ public:
     virtual IBank * Bank() = 0;
 
     // TODO - replace void * with ICard *
+    ///
+    /// \brief Get the number of Fortune Cards in the pile.
+    /// \return The number of Fortune Cards in the pile.
+    ///
+    virtual int FortuneCardCount() = 0;
+    ///
+    /// \brief Draw a Fortune Card from the pile.
+    /// \return A Fortune Card drawn from the top of the pile.
+    ///
     virtual void * DrawFortuneCard() = 0;
-    virtual void ReturnFortuneCard(void *card) = 0;
-    virtual void ShuffleFortuneCards() = 0;
+    ///
+    /// \brief Put a Fortune Card back in the pile.
+    /// \param card: the card to return to the pile.
+    /// \return The new count of cards in the pile.
+    ///
+    virtual int ReturnFortuneCard(void *card) = 0;
+    ///
+    /// \brief Shuffle the order of the Fortune Card pile.
+    /// \return A boolean, true if the cards were shuffled, false otherwise.
+    ///
+    virtual bool ShuffleFortuneCards() = 0;
 
+    ///
+    /// \brief Get the number of Company Cabinet Cards in the pile.
+    /// \return The number of Company Cabinet Cards in the pile.
+    ///
+    virtual int CompanyCabinetCardCount() = 0;
+    ///
+    /// \brief Draw a Company Cabinet Card from the pile.
+    /// \return A Company Cabinet Card drawn from the top of the pile.
+    ///
     virtual void * DrawCompanyCabinetCard() = 0;
-    virtual void ReturnCompanyCabinetCard(void *card) = 0;
-    virtual void ShuffleCompanyCabinetCards() = 0;
+    ///
+    /// \brief Put a Company Cabinet Card back in the pile.
+    /// \param card: the card to return to the pile.
+    /// \return The new count of cards in the pile.
+    ///
+    virtual int ReturnCompanyCabinetCard(void *card) = 0;
+    ///
+    /// \brief Shuffle the order of the Company Cabinet Card pile.
+    /// \return A boolean, true if the cards were shuffled, false otherwise.
+    ///
+    virtual bool ShuffleCompanyCabinetCards() = 0;
 
 protected:
     // Length of sides (in locations) for this Board
