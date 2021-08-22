@@ -14,11 +14,12 @@ class TestPlayerAccount : public QObject
     Q_OBJECT
 
 public:
-    TestPlayerAccount();
+    TestPlayerAccount() {};
     ~TestPlayerAccount() {};
 
 private slots:
-    void cleanupTestCase();
+    void init();
+    void cleanup();
     void testAvailableWealth();
     void testAddToAccount();
     void testRemoveFromAccount();

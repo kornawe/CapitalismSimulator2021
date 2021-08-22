@@ -15,11 +15,12 @@ class TestBank : public QObject
     Q_OBJECT
 
 public:
-    TestBank();
+    TestBank() {};
     ~TestBank() {};
 
 private slots:
-    void cleanupTestCase();
+    void init();
+    void cleanup();
     void testChargePlayer();
     void testPayPlayer();
 

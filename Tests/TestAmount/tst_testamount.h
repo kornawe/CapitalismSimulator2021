@@ -13,11 +13,12 @@ class TestAmount : public QObject
     Q_OBJECT
 
 public:
-    TestAmount();
+    TestAmount() {};
     ~TestAmount() {};
 
 private slots:
-    void cleanupTestCase();
+    void init();
+    void cleanup();
     void testCanGetCashValue();
     void testCanGetPropertiesList();
     void testCanGetCardsList();

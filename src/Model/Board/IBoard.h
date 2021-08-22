@@ -44,11 +44,11 @@ protected:
     // The Bank used for this Board
     IBank *m_bank;
     // The list of Locations on this Board
-    QList<void */* ILocation */> m_locations;
+    QList<void */* ILocation */> *m_locations;
     // The list of Fortune cards being used with this Board
-    QList<void */* ICard */> m_fortuneCards;
+    QList<void */* ICard */> *m_fortuneCards;
     // The list of Company Cabinet cards being used with this Board
-    QList<void */* ICard */> m_coCabinetCards;
+    QList<void */* ICard */> *m_coCabinetCards;
 };
 }
 }

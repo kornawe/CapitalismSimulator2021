@@ -1,13 +1,16 @@
 #include "tst_testplayeraccount.h"
 
-TestPlayerAccount::TestPlayerAccount() {
+///
+/// \brief TestPlayerAccount::init
+/// Setup a new Component Under Test reference before each test case.
+void TestPlayerAccount::init() {
     CuT = new PlayerAccount(0);
 }
 
 ///
 /// \brief TestPlayerAccount::cleanupTestCase
 /// Always cleanup the Component under Test reference
-void TestPlayerAccount::cleanupTestCase() {
+void TestPlayerAccount::cleanup() {
     delete CuT;
 }
 
@@ -30,7 +33,6 @@ void TestPlayerAccount::testAvailableWealth() {
 /// in the Accounts' available wealth.
 void TestPlayerAccount::testAddToAccount() {
     int expected, actual;
-    CuT = new PlayerAccount(0);
     expected = 1234567890;
     IAmount amount(expected, nullptr, nullptr);
 
