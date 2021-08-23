@@ -35,6 +35,7 @@ private slots:
 
     void testPay();
     void testGetInvoice();
+    void testGetInvoiceWithoutSetup();
 
     void testSetOwner();
 

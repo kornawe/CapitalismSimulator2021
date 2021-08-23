@@ -2,6 +2,8 @@
 #include "Location/Jail.h"
 #include "Banking/Bank.h"
 #include "Player/IPlayer.h"
+#include "Banking/IAmount.h"
+#include "Banking/IAccount.h"
 
 ///
 /// \brief TestJail::init
@@ -37,7 +39,7 @@ void TestJail::testLandOnMustPay() {
     bool actual = CuT->LandOn(player);
 
     // Assert
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -48,7 +50,7 @@ void TestJail::testLandOnWithoutSetPay() {
 
     bool actual = CuT->LandOn(player);
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -61,7 +63,7 @@ void TestJail::testLandOnWithFreePassage() {
 
     bool actual = CuT->LandOn(player);
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -76,49 +78,112 @@ void TestJail::testRequestExitMustPay() {
 
     bool actual = CuT->RequestExit(player);
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
 /// \brief TestJail::testRequestExitWithoutSetPay
 /// Verify the return value of RequestExit() when payment is not setup.
 void TestJail::testRequestExitWithoutSetPay() {
+    bool expected = true;
 
+    bool actual = CuT->RequestExit(player);
+
+    QCOMPARE(actual, expected);
 }
 
 ///
 /// \brief TestJail::testRequestExitWithFreePassage
 /// Verify the return value of RequestExit() when payment is free.
 void TestJail::testRequestExitWithFreePassage() {
+    // Setup the required payment to be free
+    CuT->SetRequiredPayment(player, 0);
+    bool expected = true;
 
+    bool actual = CuT->RequestExit(player);
+
+    QCOMPARE(actual, expected);
 }
 
 ///
 /// \brief TestJail::testRequestExitAfterPay
 /// Verify the return value of RequestExit() after a Player has paid their dues.
 void TestJail::testRequestExitAfterPay() {
+    // Setup the required payment
+    CuT->SetRequiredPayment(player, 50);
+    bool expected = true;
+    CuT->Pay(player, CuT->GetInvoice(player));
 
+    bool actual = CuT->RequestExit(player);
+
+    QCOMPARE(actual, expected);
 }
 
 ///
 /// \brief TestJail::testPay
 /// Verify that Payment works as intended.
 void TestJail::testPay() {
+    IAccount *bankAccount = bank->Account();
+    int cash = 50;
+    IAmount *amount = new IAmount(cash, nullptr, nullptr);
 
+    CuT->Pay(player, amount);
+
+    int expectedPlayerCash = startingWealth - cash;
+    int actualPlayerCash = player->Account()->AvailableWealth();
+
+    int expectedBankCash = cash;
+    int actualBankCash = bankAccount->AvailableWealth();
+
+    QCOMPARE(expectedPlayerCash, actualPlayerCash);
+    QCOMPARE(expectedBankCash, actualBankCash);
 }
 
 ///
 /// \brief TestJail::testGetInvoice
 /// Verify the Invoice amount based on required payment.
 void TestJail::testGetInvoice() {
+    // Setup the required payment
+    int expected = 1234567890;
+    CuT->SetRequiredPayment(player, expected);
 
+    IAmount *invoice = CuT->GetInvoice(player);
+
+    int actual = invoice->GetCashAmount();
+
+    QCOMPARE(actual, expected);
+}
+
+void TestJail::testGetInvoiceWithoutSetup() {
+    int expected = 0;
+
+    IAmount *invoice = CuT->GetInvoice(player);
+
+    int actual = invoice->GetCashAmount();
+
+    QCOMPARE(actual, expected);
 }
 
 ///
 /// \brief TestJail::testSetOwner
 /// Verify that the owner of the Jail cannot change.
 void TestJail::testSetOwner() {
+    // Hold onto the bank's account reference to check later
+    IAccount *bankAccount = bank->Account();
+    int expected = 50;
+    CuT->SetRequiredPayment(player, expected);
 
+    // Act
+    CuT->SetOwner(player->Account());
+
+    CuT->Pay(player, CuT->GetInvoice(player));
+
+    // Assert
+    // If the "owner" was changed, the player should be paying themselves.
+    // If the bank's account has the expected cash, the owner was never changed.
+    int actual = bankAccount->AvailableWealth();
+
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -126,7 +191,14 @@ void TestJail::testSetOwner() {
 /// Verify that the correct ledger entry is created, and invoices can be
 /// created from this set payment requirement.
 void TestJail::testSetRequiredPayment() {
+    int expected = 1234567890;
 
+    // Act
+    CuT->SetRequiredPayment(player, expected);
+
+    int actual = CuT->GetInvoice(player)->GetCashAmount();
+
+    QCOMPARE(actual, expected);
 }
 
 QTEST_APPLESS_MAIN(TestJail)

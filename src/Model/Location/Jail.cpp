@@ -8,6 +8,7 @@ namespace CapitalismSimulator {
 namespace Location {
 
 Jail::Jail(IBank *bank) : ILocation(bank) {
+    m_ownerAccount = bank->Account();
     m_players = new QList<IPlayer *>(4);
     m_ledger = new QMap<IPlayer *, int>();
 }
@@ -38,15 +39,25 @@ bool Jail::RequestExit(IPlayer *player) {
 
 void Jail::Pay(IPlayer *player, IAmount *amount) {
     // TODO - add logic to accept "Get out of Jail free" card instead of cash
-    Transaction tx(m_ownerAccount, player->Account(), amount);
+    Transaction tx(player->Account(), m_ownerAccount, amount);
     tx.Execute();
+
+    // Update the ledger after the payment takes place.
+    int cash = amount->GetCashAmount();
+    if (m_ledger->contains(player)) {
+        int difference = m_ledger->value(player) - cash;
+        m_ledger->insert(player, difference);
+    }
     delete amount;
     return;
 }
 
 IAmount * Jail::GetInvoice(IPlayer *player) {
     IAmount *amount;
-    int payment = m_ledger->value(player);
+    int payment = 0;
+    if (m_ledger->contains(player)) {
+        payment = m_ledger->value(player);
+    }
     amount = new IAmount(payment, nullptr, nullptr);
     return amount;
 }
