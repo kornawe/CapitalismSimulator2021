@@ -26,7 +26,7 @@ void TestAmount::testCanGetCashValue()
     int expected = 1234567890;
     CuT = new IAmount(expected, nullptr, nullptr);
     int actual = CuT->GetCashAmount();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///

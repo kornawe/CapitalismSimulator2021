@@ -35,7 +35,7 @@ void TestBank::testChargePlayer() {
 
     CuT->ChargePlayer(player, amount);
     int actual = player->AvailableWealth();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -52,7 +52,7 @@ void TestBank::testPayPlayer() {
 
     CuT->PayPlayer(player, amount);
     int actual = player->AvailableWealth();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 QTEST_APPLESS_MAIN(TestBank)

@@ -23,7 +23,7 @@ void TestBoard::testSideLength() {
 
     int actual = CuT->SideLength();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -46,7 +46,7 @@ void TestBoard::testFortuneCardCount() {
 
     int actual = CuT->FortuneCardCount();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -59,7 +59,7 @@ void TestBoard::testDrawFortuneCard() {
 
     int actual = CuT->FortuneCardCount();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -71,7 +71,7 @@ void TestBoard::testReturnFortuneCard() {
 
     int actual = CuT->ReturnFortuneCard(card);
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -82,7 +82,7 @@ void TestBoard::testShuffleFortuneCards() {
 
     bool actual = CuT->ShuffleFortuneCards();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -93,7 +93,7 @@ void TestBoard::testCompanyCabinetCardCount() {
 
     int actual = CuT->CompanyCabinetCardCount();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -106,7 +106,7 @@ void TestBoard::testDrawCompanyCabinetCard() {
 
     int actual = CuT->CompanyCabinetCardCount();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -118,7 +118,7 @@ void TestBoard::testReturnCompanyCabinetCard() {
 
     int actual = CuT->ReturnCompanyCabinetCard(card);
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -129,7 +129,7 @@ void TestBoard::testShuffleCompanyCabinetCards() {
 
     bool actual = CuT->ShuffleCompanyCabinetCards();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 QTEST_APPLESS_MAIN(TestBoard)

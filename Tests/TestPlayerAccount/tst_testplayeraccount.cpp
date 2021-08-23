@@ -24,7 +24,7 @@ void TestPlayerAccount::testAvailableWealth() {
 
     int actual = CuT->AvailableWealth();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -40,7 +40,7 @@ void TestPlayerAccount::testAddToAccount() {
 
     actual = CuT->AvailableWealth();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -57,7 +57,7 @@ void TestPlayerAccount::testRemoveFromAccount() {
 
     int actual = CuT->AvailableWealth();
 
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
