@@ -13,6 +13,10 @@ Die::Die(int sides) {
     m_sides = sides;
 }
 
+Die::~Die() {
+
+}
+
 int Die::Roll() const {
     return rand() % m_sides + 1;
 }

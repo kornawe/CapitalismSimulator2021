@@ -1,0 +1,71 @@
+#include "tst_testdie.h"
+#include <QList>
+
+TestDie::TestDie()
+{
+}
+
+///
+/// \brief TestDie::cleanupTestCase
+/// Always cleanup the Component under Test reference
+void TestDie::cleanupTestCase()
+{
+}
+
+///
+/// \brief TestAmount::testCanGetCashValue
+/// Verify that we can read the cash value given to the
+/// Amount when it is created.
+void TestDie::testHasAllNumbers()
+{
+    int sides = 6;
+    int maxRoll = sides;
+    Die *cut = new Die(sides);
+    bool found[maxRoll + 1];
+
+    for (int i = 0; i <= maxRoll; i++) {
+        found[i] = false;
+    }
+
+    for(int i = 0; i < sides*100; i++) {
+        int roll = cut->Roll();
+        QVERIFY(roll > 0);
+        QVERIFY(roll <= maxRoll);
+        found[roll] = true;
+    }
+
+    // We should never roll zero
+    QVERIFY(found[0] != true);
+    for(int i = 1; i <= maxRoll; i++) {
+        QVERIFY(found[i] == true);
+    }
+
+    delete(cut);
+}
+
+void TestDie::testInstancesDifferent()
+{
+    int sides = 6;
+    int maxRoll = sides;
+    Die* cutA = new Die(sides);
+    Die* cutB = new Die(sides);
+
+    int rollA;
+    int rollB;
+    bool rollsDiffer = false;
+    for (int i = 0; i <= maxRoll * 100; i++) {
+        rollA = cutA->Roll();
+        rollB = cutB->Roll();
+        if (rollA != rollB) {
+            rollsDiffer = true;
+        }
+    }
+
+    QVERIFY(rollsDiffer);
+
+    delete(cutA);
+    delete(cutB);
+}
+
+
+QTEST_APPLESS_MAIN(TestDie)

@@ -10,7 +10,7 @@ class Die : public CapitalismSimulator::Chance::IDie {
 
 public:
     Die(int sides);
-    ~Die();
+    virtual ~Die();
 
     int Roll() const override;
 
