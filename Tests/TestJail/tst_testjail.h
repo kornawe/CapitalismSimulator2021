@@ -35,6 +35,7 @@ private slots:
 
     void Pay_bankAccountShouldReceivePayment();
     void Invoice_shouldContainRequiredPayment();
+    void Invoice_shouldShowRemainderWhenNotFullyPaid();
     void Invoice_shouldShowNoPaymentDueWithoutSetup();
 
     void Owner_shouldNotChangeWhenSet();

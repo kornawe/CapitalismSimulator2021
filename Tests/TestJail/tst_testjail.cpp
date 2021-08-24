@@ -151,9 +151,34 @@ void TestJail::Invoice_shouldContainRequiredPayment() {
 
     int actual = invoice->GetCashAmount();
 
+    delete invoice;
     QCOMPARE(actual, expected);
 }
 
+///
+/// \brief TestJail::Invoice_shouldShowRemainderWhenNotFullyPaid
+/// Verify that a player's owed amount updates when they don't pay their full
+/// amount due.
+void TestJail::Invoice_shouldShowRemainderWhenNotFullyPaid() {
+    int initialCost = 100;
+    int initialPayment = 20;
+    int expected = initialCost - initialPayment;
+    CuT->SetRequiredPayment(player, initialCost);
+    IAmount *amount = new IAmount(initialPayment, nullptr, nullptr);
+    CuT->Pay(player, amount);
+
+    IAmount *invoice = CuT->GetInvoice(player);
+
+    int actual = invoice->GetCashAmount();
+
+    delete invoice;
+    QCOMPARE(actual, expected);
+}
+
+///
+/// \brief TestJail::Invoice_shouldShowNoPaymentDueWithoutSetup
+/// Verify that when a payment is not setup, a player's invoice shows no money
+/// due.
 void TestJail::Invoice_shouldShowNoPaymentDueWithoutSetup() {
     int expected = 0;
 
@@ -161,6 +186,7 @@ void TestJail::Invoice_shouldShowNoPaymentDueWithoutSetup() {
 
     int actual = invoice->GetCashAmount();
 
+    delete invoice;
     QCOMPARE(actual, expected);
 }
 
