@@ -47,24 +47,23 @@ void TestDie::testInstancesDifferent()
 {
     int sides = 6;
     int maxRoll = sides;
-    Die* cutA = new Die(sides);
-    Die* cutB = new Die(sides);
+    Die cutA = Die(sides);
+    Die cutB = Die(sides);
 
     int rollA;
     int rollB;
     bool rollsDiffer = false;
     for (int i = 0; i <= maxRoll * 100; i++) {
-        rollA = cutA->Roll();
-        rollB = cutB->Roll();
+        rollA = cutA.Roll();
+        rollB = cutB.Roll();
         if (rollA != rollB) {
             rollsDiffer = true;
+            break;
         }
     }
 
     QVERIFY(rollsDiffer);
 
-    delete(cutA);
-    delete(cutB);
 }
 
 

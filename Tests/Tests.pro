@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    Chance/Die/TestDie.pro \
+    Chance/Chance.pro \
     TestAmount \
