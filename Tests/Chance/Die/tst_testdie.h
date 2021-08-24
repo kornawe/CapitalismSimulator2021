@@ -18,8 +18,8 @@ public:
 
 private slots:
     void cleanupTestCase();
-    void testHasAllNumbers();
-    void testInstancesDifferent();
+    void Roll_ShouldProduceAllPosibilities();
+    void Roll_InstancesShouldDiffer();
 
 private:
 

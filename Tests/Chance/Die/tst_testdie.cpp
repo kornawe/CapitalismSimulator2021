@@ -16,7 +16,7 @@ void TestDie::cleanupTestCase()
 /// \brief TestAmount::testCanGetCashValue
 /// Verify that we can read the cash value given to the
 /// Amount when it is created.
-void TestDie::testHasAllNumbers()
+void TestDie::Roll_ShouldProduceAllPosibilities()
 {
     int sides = 6;
     int maxRoll = sides;
@@ -43,7 +43,7 @@ void TestDie::testHasAllNumbers()
     delete(cut);
 }
 
-void TestDie::testInstancesDifferent()
+void TestDie::Roll_InstancesShouldDiffer()
 {
     int sides = 6;
     int maxRoll = sides;

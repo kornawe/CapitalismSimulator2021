@@ -16,7 +16,7 @@ void TestDice::cleanupTestCase()
 /// \brief TestAmount::testCanGetCashValue
 /// Verify that we can read the cash value given to the
 /// Amount when it is created.
-void TestDice::testHasAllNumbers()
+void TestDice::Roll_ShouldProduceAllPosibilities()
 {
     int numDice = 2;
     int sides = 6;
@@ -45,7 +45,7 @@ void TestDice::testHasAllNumbers()
 
 }
 
-void TestDice::testInstancesDifferent()
+void TestDice::Roll_DifferentInstanceShouldDiffer()
 {
     int numDice = 2;
     int sides = 6;
