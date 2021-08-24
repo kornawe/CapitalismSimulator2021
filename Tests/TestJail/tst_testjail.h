@@ -24,22 +24,22 @@ private slots:
     void init();
     void cleanup();
 
-    void testLandOnMustPay();
-    void testLandOnWithoutSetPay();
-    void testLandOnWithFreePassage();
+    void LandOn_shouldReturnTrueWhenPlayerMustPay();
+    void LandOn_shouldReturnFalseWithoutSetPay();
+    void LandOn_shouldReturnFalseWithFreePassage();
 
-    void testRequestExitMustPay();
-    void testRequestExitWithoutSetPay();
-    void testRequestExitWithFreePassage();
-    void testRequestExitAfterPay();
+    void RequestExit_shouldReturnFalseWhenPlayerMustPay();
+    void RequestExit_shouldReturnTrueWithoutSetPay();
+    void RequestExit_shouldReturnTrueWithFreePassage();
+    void RequestExit_shouldReturnTrueAfterPaymentReceived();
 
-    void testPay();
-    void testGetInvoice();
-    void testGetInvoiceWithoutSetup();
+    void Pay_bankAccountShouldReceivePayment();
+    void Invoice_shouldContainRequiredPayment();
+    void Invoice_shouldShowNoPaymentDueWithoutSetup();
 
-    void testSetOwner();
+    void Owner_shouldNotChangeWhenSet();
 
-    void testSetRequiredPayment();
+    void SetRequiredPayment_shouldStoreBalanceForThatPlayer();
 
 private:
     // Component Under Test

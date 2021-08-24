@@ -28,9 +28,9 @@ void TestJail::cleanup() {
 }
 
 ///
-/// \brief TestJail::testLandOnMustPay
+/// \brief TestJail::shouldReturnTrueWhenPlayerMustPay
 /// Verify the return value of LandOn() when a payment is required.
-void TestJail::testLandOnMustPay() {
+void TestJail::LandOn_shouldReturnTrueWhenPlayerMustPay() {
     // Setup the required payment before the player lands on the Location.
     CuT->SetRequiredPayment(player, 50);
     bool expected = true;
@@ -43,9 +43,9 @@ void TestJail::testLandOnMustPay() {
 }
 
 ///
-/// \brief TestJail::testLandOnWithoutSetPay
+/// \brief TestJail::shouldReturnFalseWithoutSetPay
 /// Verify the return value of LandOn() when payment is not setup.
-void TestJail::testLandOnWithoutSetPay() {
+void TestJail::LandOn_shouldReturnFalseWithoutSetPay() {
     bool expected = false;
 
     bool actual = CuT->LandOn(player);
@@ -54,9 +54,9 @@ void TestJail::testLandOnWithoutSetPay() {
 }
 
 ///
-/// \brief TestJail::testLandOnWithFreePassage
+/// \brief TestJail::LandOn_shouldReturnFalseWithFreePassage
 /// Verify the return value of LandOn() when payment is free.
-void TestJail::testLandOnWithFreePassage() {
+void TestJail::LandOn_shouldReturnFalseWithFreePassage() {
     // Setup the required payment to be free
     CuT->SetRequiredPayment(player, 0);
     bool expected = false;
@@ -67,9 +67,9 @@ void TestJail::testLandOnWithFreePassage() {
 }
 
 ///
-/// \brief TestJail::testRequestExitMustPay
+/// \brief TestJail::RequestExit_shouldReturnFalseWhenPlayerMustPay
 /// Verify the return value of RequestExit() when payment is required.
-void TestJail::testRequestExitMustPay() {
+void TestJail::RequestExit_shouldReturnFalseWhenPlayerMustPay() {
     // Setup the required payment
     CuT->SetRequiredPayment(player, 50);
     // make sure the player is on the Location
@@ -82,9 +82,9 @@ void TestJail::testRequestExitMustPay() {
 }
 
 ///
-/// \brief TestJail::testRequestExitWithoutSetPay
+/// \brief TestJail::RequestExit_shouldReturnTrueWithoutSetPay
 /// Verify the return value of RequestExit() when payment is not setup.
-void TestJail::testRequestExitWithoutSetPay() {
+void TestJail::RequestExit_shouldReturnTrueWithoutSetPay() {
     bool expected = true;
 
     bool actual = CuT->RequestExit(player);
@@ -93,9 +93,9 @@ void TestJail::testRequestExitWithoutSetPay() {
 }
 
 ///
-/// \brief TestJail::testRequestExitWithFreePassage
+/// \brief TestJail::RequestExit_shouldReturnTrueWithFreePassage
 /// Verify the return value of RequestExit() when payment is free.
-void TestJail::testRequestExitWithFreePassage() {
+void TestJail::RequestExit_shouldReturnTrueWithFreePassage() {
     // Setup the required payment to be free
     CuT->SetRequiredPayment(player, 0);
     bool expected = true;
@@ -106,9 +106,9 @@ void TestJail::testRequestExitWithFreePassage() {
 }
 
 ///
-/// \brief TestJail::testRequestExitAfterPay
+/// \brief TestJail::RequestExit_shouldReturnTrueAfterPaymentReceived
 /// Verify the return value of RequestExit() after a Player has paid their dues.
-void TestJail::testRequestExitAfterPay() {
+void TestJail::RequestExit_shouldReturnTrueAfterPaymentReceived() {
     // Setup the required payment
     CuT->SetRequiredPayment(player, 50);
     bool expected = true;
@@ -120,9 +120,9 @@ void TestJail::testRequestExitAfterPay() {
 }
 
 ///
-/// \brief TestJail::testPay
+/// \brief TestJail::Pay_bankAccountShouldReceivePayment
 /// Verify that Payment works as intended.
-void TestJail::testPay() {
+void TestJail::Pay_bankAccountShouldReceivePayment() {
     IAccount *bankAccount = bank->Account();
     int cash = 50;
     IAmount *amount = new IAmount(cash, nullptr, nullptr);
@@ -140,9 +140,9 @@ void TestJail::testPay() {
 }
 
 ///
-/// \brief TestJail::testGetInvoice
+/// \brief TestJail::Invoice_shouldContainRequiredPayment
 /// Verify the Invoice amount based on required payment.
-void TestJail::testGetInvoice() {
+void TestJail::Invoice_shouldContainRequiredPayment() {
     // Setup the required payment
     int expected = 1234567890;
     CuT->SetRequiredPayment(player, expected);
@@ -154,7 +154,7 @@ void TestJail::testGetInvoice() {
     QCOMPARE(actual, expected);
 }
 
-void TestJail::testGetInvoiceWithoutSetup() {
+void TestJail::Invoice_shouldShowNoPaymentDueWithoutSetup() {
     int expected = 0;
 
     IAmount *invoice = CuT->GetInvoice(player);
@@ -165,9 +165,9 @@ void TestJail::testGetInvoiceWithoutSetup() {
 }
 
 ///
-/// \brief TestJail::testSetOwner
+/// \brief TestJail::Owner_shouldNotChangeWhenSet
 /// Verify that the owner of the Jail cannot change.
-void TestJail::testSetOwner() {
+void TestJail::Owner_shouldNotChangeWhenSet() {
     // Hold onto the bank's account reference to check later
     IAccount *bankAccount = bank->Account();
     int expected = 50;
@@ -187,10 +187,10 @@ void TestJail::testSetOwner() {
 }
 
 ///
-/// \brief TestJail::testSetRequiredPayment
+/// \brief TestJail::SetRequiredPayment_shouldStoreBalanceForThatPlayer
 /// Verify that the correct ledger entry is created, and invoices can be
 /// created from this set payment requirement.
-void TestJail::testSetRequiredPayment() {
+void TestJail::SetRequiredPayment_shouldStoreBalanceForThatPlayer() {
     int expected = 1234567890;
 
     // Act
