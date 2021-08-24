@@ -19,16 +19,16 @@ public:
 private slots:
     void init();
     void cleanup();
-    void testSideLength();
-    void testBankAccessor();
-    void testFortuneCardCount();
-    void testDrawFortuneCard();
-    void testReturnFortuneCard();
-    void testShuffleFortuneCards();
-    void testCompanyCabinetCardCount();
-    void testDrawCompanyCabinetCard();
-    void testReturnCompanyCabinetCard();
-    void testShuffleCompanyCabinetCards();
+    void SideLength_shouldMatchValuePassedIntoConstructor();
+    void Bank_shouldReturnInstanceOfIBank();
+    void FortuneCardCount_shouldReturnOne();
+    void DrawFortuneCard_shouldReduceCountInPileByOne();
+    void ReturnFortuneCard_shouldIncrementCountInPileByOne();
+    void ShuffleFortuneCards_shouldReturnTrueWhenSuccessful();
+    void CompanyCabinetCardCount_shouldReturnOne();
+    void DrawCompanyCabinetCard_shouldReduceCountInPileByOne();
+    void ReturnCompanyCabinetCard_shouldIncrementCountInPileByOne();
+    void ShuffleCompanyCabinetCards_shouldReturnTrueWhenSuccessful();
 
 private:
     // Component Under Test
