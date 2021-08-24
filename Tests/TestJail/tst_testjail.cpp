@@ -67,6 +67,19 @@ void TestJail::LandOn_shouldReturnFalseWithFreePassage() {
 }
 
 ///
+/// \brief TestJail::LandOn_verifyCanHandleNullptrInput
+/// Verify that this method can handle bad input without crashing.
+/// We also want to make sure that this method does not specify that an
+/// undefined player has a fee to pay when Landing On this Location.
+void TestJail::LandOn_verifyCanHandleNullptrInput() {
+    bool expected = false;
+
+    bool actual = CuT->LandOn(nullptr);
+
+    QCOMPARE(actual, expected);
+}
+
+///
 /// \brief TestJail::RequestExit_shouldReturnFalseWhenPlayerMustPay
 /// Verify the return value of RequestExit() when payment is required.
 void TestJail::RequestExit_shouldReturnFalseWhenPlayerMustPay() {
@@ -120,6 +133,19 @@ void TestJail::RequestExit_shouldReturnTrueAfterPaymentReceived() {
 }
 
 ///
+/// \brief TestJail::RequestExit_verifyCanHandleNullptrInput
+/// Verify that this method can handle bad input without crashing.
+/// We also want to make sure we get an expected return value. The Jail
+/// should not deny an exit request to an undefined player.
+void TestJail::RequestExit_verifyCanHandleNullptrInput() {
+    bool expected = true;
+
+    bool actual = CuT->RequestExit(nullptr);
+
+    QCOMPARE(actual, expected);
+}
+
+///
 /// \brief TestJail::Pay_bankAccountShouldReceivePayment
 /// Verify that Payment works as intended.
 void TestJail::Pay_bankAccountShouldReceivePayment() {
@@ -158,6 +184,25 @@ void TestJail::Pay_shouldZeroInvoiceAmount() {
 
     delete paidInvoice;
     QCOMPARE(actual, expected);
+}
+
+///
+/// \brief TestJail::Pay_verifyCanHandleNullptrPlayerInput
+/// Verify that this method can handle bad input without crashing.
+void TestJail::Pay_verifyCanHandleNullptrPlayerInput() {
+    IAmount *amount = new IAmount(0, nullptr, nullptr);
+    CuT->Pay(nullptr, amount);
+    // If we get here, we pass automatically.
+    QVERIFY(true);
+}
+
+///
+/// \brief TestJail::Pay_verifyCanHandleNullptrAmountInput
+/// Verify that this method can handle bad input without crashing.
+void TestJail::Pay_verifyCanHandleNullptrAmountInput() {
+    CuT->Pay(player, nullptr);
+    // If we get here, we pass automatically.
+    QVERIFY(true);
 }
 
 ///
@@ -213,6 +258,21 @@ void TestJail::Invoice_shouldShowNoPaymentDueWithoutSetup() {
 }
 
 ///
+/// \brief TestJail::Invoice_verifyCanHandleNullptrInput
+/// Verify that this method can handle bad input without crashing.
+/// We also want to verify that the Invoice shows no money owed for a non
+/// defined player.
+void TestJail::Invoice_verifyCanHandleNullptrInput() {
+    int expected = 0;
+    IAmount *invoice = CuT->GetInvoice(nullptr);
+
+    int actual = invoice->GetCashAmount();
+
+    delete invoice;
+    QCOMPARE(actual, expected);
+}
+
+///
 /// \brief TestJail::Owner_shouldNotChangeWhenSet
 /// Verify that the owner of the Jail cannot change.
 void TestJail::Owner_shouldNotChangeWhenSet() {
@@ -235,6 +295,15 @@ void TestJail::Owner_shouldNotChangeWhenSet() {
 }
 
 ///
+/// \brief TestJail::Owner_verifyCanHandleNullptrInput
+/// Verify that this method can handle bad input without crashing.
+void TestJail::Owner_verifyCanHandleNullptrInput() {
+    CuT->SetOwner(nullptr);
+    // If we get here, we pass automatically.
+    QVERIFY(true);
+}
+
+///
 /// \brief TestJail::SetRequiredPayment_shouldStoreBalanceForThatPlayer
 /// Verify that the correct ledger entry is created, and invoices can be
 /// created from this set payment requirement.
@@ -247,6 +316,15 @@ void TestJail::SetRequiredPayment_shouldStoreBalanceForThatPlayer() {
     int actual = CuT->GetInvoice(player)->GetCashAmount();
 
     QCOMPARE(actual, expected);
+}
+
+///
+/// \brief TestJail::SetRequiredPayment_verifyCanHandleNullptrInput
+/// Verify that this method can handle bad input without crashing.
+void TestJail::SetRequiredPayment_verifyCanHandleNullptrInput() {
+    CuT->SetRequiredPayment(nullptr, 0);
+    // If we get here, we pass automatically.
+    QVERIFY(true);
 }
 
 QTEST_APPLESS_MAIN(TestJail)

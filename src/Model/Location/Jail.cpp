@@ -39,6 +39,10 @@ bool Jail::RequestExit(IPlayer *player) {
 
 void Jail::Pay(IPlayer *player, IAmount *amount) {
     // TODO - add logic to accept "Get out of Jail free" card instead of cash
+    // If player or amount are NULL, just return.
+    if (!player || !amount) {
+        return;
+    }
     Transaction tx(player->Account(), m_ownerAccount, amount);
     tx.Execute();
 
