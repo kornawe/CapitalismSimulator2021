@@ -34,6 +34,8 @@ private slots:
     void RequestExit_shouldReturnTrueAfterPaymentReceived();
 
     void Pay_bankAccountShouldReceivePayment();
+    void Pay_shouldZeroInvoiceAmount();
+
     void Invoice_shouldContainRequiredPayment();
     void Invoice_shouldShowRemainderWhenNotFullyPaid();
     void Invoice_shouldShowNoPaymentDueWithoutSetup();

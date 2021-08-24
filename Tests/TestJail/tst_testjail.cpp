@@ -127,6 +127,7 @@ void TestJail::Pay_bankAccountShouldReceivePayment() {
     int cash = 50;
     IAmount *amount = new IAmount(cash, nullptr, nullptr);
 
+    // Pay will delete this amount
     CuT->Pay(player, amount);
 
     int expectedPlayerCash = startingWealth - cash;
@@ -137,6 +138,26 @@ void TestJail::Pay_bankAccountShouldReceivePayment() {
 
     QCOMPARE(expectedPlayerCash, actualPlayerCash);
     QCOMPARE(expectedBankCash, actualBankCash);
+}
+
+///
+/// \brief TestJail::Pay_shouldZeroInvoiceAmount
+/// Verify that paying the amount due affects the player's balance for this
+/// Location.
+void TestJail::Pay_shouldZeroInvoiceAmount() {
+    int startingCost = 50;
+    CuT->SetRequiredPayment(player, startingCost);
+    IAmount *initialInvoice = CuT->GetInvoice(player);
+    int expected = 0;
+
+    // Pay will delete this invoice
+    CuT->Pay(player, initialInvoice);
+
+    IAmount *paidInvoice = CuT->GetInvoice(player);
+    int actual = paidInvoice->GetCashAmount();
+
+    delete paidInvoice;
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -165,6 +186,7 @@ void TestJail::Invoice_shouldShowRemainderWhenNotFullyPaid() {
     int expected = initialCost - initialPayment;
     CuT->SetRequiredPayment(player, initialCost);
     IAmount *amount = new IAmount(initialPayment, nullptr, nullptr);
+    // Pay will delete this amount
     CuT->Pay(player, amount);
 
     IAmount *invoice = CuT->GetInvoice(player);
