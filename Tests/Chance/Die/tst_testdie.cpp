@@ -20,7 +20,7 @@ void TestDie::Roll_ShouldProduceAllPosibilities()
 {
     int sides = 6;
     int maxRoll = sides;
-    Die *cut = new Die(sides);
+    Die cut = Die(sides);
     bool found[maxRoll + 1];
 
     for (int i = 0; i <= maxRoll; i++) {
@@ -40,7 +40,6 @@ void TestDie::Roll_ShouldProduceAllPosibilities()
         QVERIFY(found[i] == true);
     }
 
-    delete(cut);
 }
 
 void TestDie::Roll_InstancesShouldDiffer()
