@@ -43,6 +43,10 @@ void Jail::Pay(IPlayer *player, IAmount *amount) {
     if (!player || !amount) {
         return;
     }
+    // If payment amount is negative, just return. This is not allowed.
+    if (amount->GetCashAmount() < 0) {
+        return;
+    }
     Transaction tx(player->Account(), m_ownerAccount, amount);
     tx.Execute();
 

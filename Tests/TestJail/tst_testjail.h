@@ -39,6 +39,7 @@ private slots:
     void Pay_shouldZeroInvoiceAmount();
     void Pay_verifyCanHandleNullptrPlayerInput();
     void Pay_verifyCanHandleNullptrAmountInput();
+    void Pay_negativeAmountShouldNotPayPlayer();
 
     void Invoice_shouldContainRequiredPayment();
     void Invoice_shouldShowRemainderWhenNotFullyPaid();

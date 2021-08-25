@@ -206,6 +206,23 @@ void TestJail::Pay_verifyCanHandleNullptrAmountInput() {
 }
 
 ///
+/// \brief TestJail::Pay_negativeAmountShouldNotPayPlayer
+/// Verify that a player making a payment with a negative amount doesn't credit
+/// their Account.
+void TestJail::Pay_negativeAmountShouldNotPayPlayer() {
+    player = new IPlayer("test", 0);
+    int payment = -100;
+    IAmount *amount = new IAmount(payment, nullptr, nullptr);
+    int expected = 0;
+
+    CuT->Pay(player, amount);
+
+    int actual = player->Account()->AvailableWealth();
+
+    QCOMPARE(actual, expected);
+}
+
+///
 /// \brief TestJail::Invoice_shouldContainRequiredPayment
 /// Verify the Invoice amount based on required payment.
 void TestJail::Invoice_shouldContainRequiredPayment() {
