@@ -15,11 +15,12 @@ class TestTransaction : public QObject
     Q_OBJECT
 
 public:
-    TestTransaction();
+    TestTransaction() {};
     ~TestTransaction() {};
 
 private slots:
-    void cleanupTestCase();
+    void init();
+    void cleanup();
     void testAmountGetter();
     void testAccountFromGetter();
     void testAccountToGetter();

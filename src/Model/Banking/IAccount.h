@@ -9,10 +9,11 @@
 #define IACCOUNT_H_
 
 #include <QList>
-#include "IAmount.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
+
+class IAmount;
 
 class IAccount {
 public:

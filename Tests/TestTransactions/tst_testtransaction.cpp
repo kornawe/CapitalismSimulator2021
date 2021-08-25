@@ -1,6 +1,9 @@
 #include "tst_testtransaction.h"
 
-TestTransaction::TestTransaction() {
+///
+/// \brief TestTransaction::init
+/// Setup a new Component Under Test reference before each test case.
+void TestTransaction::init() {
     CuT = new Transaction(nullptr, nullptr, nullptr);
 
     amount = new IAmount(0, nullptr, nullptr);
@@ -12,7 +15,7 @@ TestTransaction::TestTransaction() {
 /// \brief TestTransaction::cleanupTestCase
 /// Always cleanup the Component under Test reference, as well as
 /// any friend object references
-void TestTransaction::cleanupTestCase() {
+void TestTransaction::cleanup() {
     delete CuT;
 
     delete amount;

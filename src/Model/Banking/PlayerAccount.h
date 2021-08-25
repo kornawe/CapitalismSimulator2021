@@ -13,6 +13,8 @@
 namespace CapitalismSimulator {
 namespace Banking {
 
+class IAmount;
+
 class PlayerAccount : public IAccount {
 public:
     PlayerAccount(int wealth) {

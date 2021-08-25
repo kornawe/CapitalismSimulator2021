@@ -1,11 +1,12 @@
 #include "Bank.h"
 #include "Transaction.h"
+#include "PlayerAccount.h"
+#include "IAmount.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
 
-Bank::Bank(int wealth)
-{
+Bank::Bank(int wealth) {
     m_account = new PlayerAccount(wealth);
     // TODO: create list of all properties, create a new amount with all
     // properties, then add to the bank's account
@@ -28,6 +29,10 @@ void Bank::PayPlayer(IAccount *toPay, IAmount *amount) {
     Transaction tx(m_account, toPay, amount);
     tx.Execute();
     return;
+}
+
+IAccount * Bank::Account(void) {
+    return m_account;
 }
 
 }

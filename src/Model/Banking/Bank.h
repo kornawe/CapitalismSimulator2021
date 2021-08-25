@@ -18,8 +18,9 @@ public:
     Bank(int wealth);
     ~Bank();
 
-    void ChargePlayer(IAccount* toCharge, IAmount* amount);
-    void PayPlayer(IAccount* toPay, IAmount* amount);
+    void ChargePlayer(IAccount* toCharge, IAmount* amount) override;
+    void PayPlayer(IAccount* toPay, IAmount* amount) override;
+    IAccount * Account(void) override;
 };
 }
 }

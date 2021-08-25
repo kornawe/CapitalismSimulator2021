@@ -1,16 +1,17 @@
 #include "tst_testamount.h"
 #include <QList>
 
-TestAmount::TestAmount()
-{
-    // Setup CuT to compile
+///
+/// \brief TestAmount::init
+/// Setup a new Component Under Test reference before each test.
+void TestAmount::init() {
     CuT = new IAmount(0, nullptr, nullptr);
 }
 
 ///
-/// \brief TestAmount::cleanupTestCase
+/// \brief TestAmount::cleanup
 /// Always cleanup the Component under Test reference
-void TestAmount::cleanupTestCase()
+void TestAmount::cleanup()
 {
     delete CuT;
 }
@@ -25,7 +26,7 @@ void TestAmount::testCanGetCashValue()
     int expected = 1234567890;
     CuT = new IAmount(expected, nullptr, nullptr);
     int actual = CuT->GetCashAmount();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///

@@ -1,6 +1,9 @@
 #include "tst_testbank.h"
 
-TestBank::TestBank() {
+///
+/// \brief TestBank::init
+/// Setup a new Component Under Test reference before each test case.
+void TestBank::init() {
     CuT = new Bank(0);
 
     player = new PlayerAccount(0);
@@ -11,7 +14,7 @@ TestBank::TestBank() {
 /// \brief TestBank::cleanupTestCase
 /// Always cleanup the Component under Test reference, as well as
 /// any friend object references
-void TestBank::cleanupTestCase() {
+void TestBank::cleanup() {
     delete CuT;
 
     delete player;
@@ -32,7 +35,7 @@ void TestBank::testChargePlayer() {
 
     CuT->ChargePlayer(player, amount);
     int actual = player->AvailableWealth();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 ///
@@ -49,7 +52,7 @@ void TestBank::testPayPlayer() {
 
     CuT->PayPlayer(player, amount);
     int actual = player->AvailableWealth();
-    QCOMPARE(expected, actual);
+    QCOMPARE(actual, expected);
 }
 
 QTEST_APPLESS_MAIN(TestBank)
