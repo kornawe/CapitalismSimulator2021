@@ -17,10 +17,10 @@ void TestAmount::cleanup()
 }
 
 ///
-/// \brief TestAmount::testCanGetCashValue
+/// \brief TestAmount::GetCashAmount_returnsValuePassedIn
 /// Verify that we can read the cash value given to the
 /// Amount when it is created.
-void TestAmount::testCanGetCashValue()
+void TestAmount::GetCashAmount_returnsValuePassedIn()
 {
     // expected cash amount
     int expected = 1234567890;
@@ -30,11 +30,11 @@ void TestAmount::testCanGetCashValue()
 }
 
 ///
-/// \brief TestAmount::testCanGetPropertiesList
+/// \brief TestAmount::GetProperties_returnsListOfPropertiesPassedIn
 /// Verify that the list of Properties passed to the Amount
 /// can be read, and matches the list given when the Amount
 /// is created.
-void TestAmount::testCanGetPropertiesList() {
+void TestAmount::GetProperties_returnsListOfPropertiesPassedIn() {
     QList<void*> properties;
     void* i = 0;
     properties.append(i);
@@ -45,11 +45,11 @@ void TestAmount::testCanGetPropertiesList() {
 }
 
 ///
-/// \brief TestAmount::testCanGetCardsList
+/// \brief TestAmount::GetCards_returnsListOfCardsPassedIn
 /// Verify that the list of Cards passed to the Amount
 /// can be read, and matches the list given when the Amount
 /// is created.
-void TestAmount::testCanGetCardsList() {
+void TestAmount::GetCards_returnsListOfCardsPassedIn() {
     QList<void*> cards;
     void* i = 0;
     cards.append(i);

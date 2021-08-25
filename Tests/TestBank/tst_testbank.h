@@ -21,8 +21,8 @@ public:
 private slots:
     void init();
     void cleanup();
-    void testChargePlayer();
-    void testPayPlayer();
+    void ChargePlayer_shouldRemoveFundsFromPlayer();
+    void PayPlayer_shouldAddFundsToPlayer();
 
 private:
     // Component Under Test

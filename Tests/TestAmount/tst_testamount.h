@@ -19,9 +19,9 @@ public:
 private slots:
     void init();
     void cleanup();
-    void testCanGetCashValue();
-    void testCanGetPropertiesList();
-    void testCanGetCardsList();
+    void GetCashAmount_returnsValuePassedIn();
+    void GetProperties_returnsListOfPropertiesPassedIn();
+    void GetCards_returnsListOfCardsPassedIn();
 
 private:
     // Component Under Test

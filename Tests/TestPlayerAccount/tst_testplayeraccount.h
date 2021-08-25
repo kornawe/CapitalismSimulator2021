@@ -20,10 +20,10 @@ public:
 private slots:
     void init();
     void cleanup();
-    void testAvailableWealth();
-    void testAddToAccount();
-    void testRemoveFromAccount();
-    void testPerformTrade();
+    void AvailableWealth_shouldReturnCashAmountForPlayer();
+    void AddToAccount_shouldChangeAvailableWealth();
+    void RemoveFromAccount_shouldChangeAvailableWealth();
+    void PerformTrade_shouldAffectBothPlayersAvailableWealthByTradeAmount();
 
 private:
     // Component Under Test

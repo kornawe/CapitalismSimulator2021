@@ -21,12 +21,12 @@ public:
 private slots:
     void init();
     void cleanup();
-    void testAmountGetter();
-    void testAccountFromGetter();
-    void testAccountToGetter();
-    void testExecuteTransactionOfCash();
-    void testUndoTransactionOfCash();
-    void testRedoTransactionOfCash();
+    void Amount_shouldReturnAmountPassedIn();
+    void From_shouldReturnPointerToFromAccount();
+    void To_shouldReturnPointerToToAccount();
+    void Execute_shouldTransferCashAmountFromPlayerToOtherPlayer();
+    void Undo_shouldRevertExecuteTransferOfCash();
+    void Redo_shouldPerformSameBehaviorAsExecute();
 
 private:
     // Component Under Test

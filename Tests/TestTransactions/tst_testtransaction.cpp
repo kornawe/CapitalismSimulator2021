@@ -24,9 +24,9 @@ void TestTransaction::cleanup() {
 }
 
 ///
-/// \brief TestTransaction::testAmountGetter
+/// \brief TestTransaction::Amount_shouldReturnAmountPassedIn
 /// Verify that the Amount accessor works as intended.
-void TestTransaction::testAmountGetter() {
+void TestTransaction::Amount_shouldReturnAmountPassedIn() {
     // Setup friend object
     int expected_cash = 1234567890;
     amount = new IAmount(expected_cash, nullptr, nullptr);
@@ -40,9 +40,9 @@ void TestTransaction::testAmountGetter() {
 }
 
 ///
-/// \brief TestTransaction::testAccountFromGetter
+/// \brief TestTransaction::From_shouldReturnPointerToFromAccount
 /// Verify that the "From" Account accessor works as intended.
-void TestTransaction::testAccountFromGetter() {
+void TestTransaction::From_shouldReturnPointerToFromAccount() {
     // Setup friend object
     int expected_cash = 1234567890;
     acct_one = new PlayerAccount(expected_cash);
@@ -58,7 +58,7 @@ void TestTransaction::testAccountFromGetter() {
 ///
 /// \brief TestTransaction::testAccountToGetter
 /// Verify that the "To" Account accessor works as intended.
-void TestTransaction::testAccountToGetter() {
+void TestTransaction::To_shouldReturnPointerToToAccount() {
     // Setup friend object
     int expected_cash = 1234567890;
     acct_one = new PlayerAccount(expected_cash);
@@ -72,10 +72,10 @@ void TestTransaction::testAccountToGetter() {
 }
 
 ///
-/// \brief TestTransaction::testExecuteTransaction
+/// \brief TestTransaction::Execute_shouldTransferCashAmountFromPlayerToOtherPlayer
 /// Setup a transaction to send money from one account to another,
 /// and verify that the transaction completes.
-void TestTransaction::testExecuteTransactionOfCash() {
+void TestTransaction::Execute_shouldTransferCashAmountFromPlayerToOtherPlayer() {
     // Setup friend objects
     int expected_cash = 1234567890;
     // Account one will hold all assets to start
@@ -100,9 +100,9 @@ void TestTransaction::testExecuteTransactionOfCash() {
 }
 
 ///
-/// \brief TestTransaction::testUndoTransactionOfCash
+/// \brief TestTransaction::Undo_shouldRevertExecuteTransferOfCash
 /// Verify that we can reverse a Transaction that has already happened.
-void TestTransaction::testUndoTransactionOfCash() {
+void TestTransaction::Undo_shouldRevertExecuteTransferOfCash() {
     // Setup friend objects
     int expected_cash = 1234567890;
     // Account one will hold all assets to start
@@ -130,9 +130,9 @@ void TestTransaction::testUndoTransactionOfCash() {
 }
 
 ///
-/// \brief TestTransaction::testRedoTransactionOfCash
+/// \brief TestTransaction::Redo_shouldPerformSameBehaviorAsExecute
 /// Verify that we can redo a Transaction that has been undone.
-void TestTransaction::testRedoTransactionOfCash() {
+void TestTransaction::Redo_shouldPerformSameBehaviorAsExecute() {
     // Setup friend objects
     int expected_cash = 1234567890;
     // Account one will hold all assets to start

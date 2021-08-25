@@ -22,12 +22,12 @@ void TestBank::cleanup() {
 }
 
 ///
-/// \brief TestBank::testChargePlayer
+/// \brief TestBank::ChargePlayer_shouldRemoveFundsFromPlayer
 /// Verify that the ChargePlayer method works as expected.
 /// This should remove a given set of assets defined by an
 /// Amount object from the Player's account, into the Bank's
 /// account.
-void TestBank::testChargePlayer() {
+void TestBank::ChargePlayer_shouldRemoveFundsFromPlayer() {
     int chargeAmount = 1234567890;
     int expected = 0;
     player = new PlayerAccount(chargeAmount);
@@ -39,12 +39,12 @@ void TestBank::testChargePlayer() {
 }
 
 ///
-/// \brief TestBank::testPayPlayer
+/// \brief TestBank::PayPlayer_shouldAddFundsToPlayer
 /// Verify that the PayPlayer method works as expected.
 /// This should remove a given set of assets defined by an
 /// Amount object from the Bank's account, into the Player's
 /// account.
-void TestBank::testPayPlayer() {
+void TestBank::PayPlayer_shouldAddFundsToPlayer() {
     int payAmount, expected;
     payAmount = expected = 1234567890;
     CuT = new Bank(1234567890);
