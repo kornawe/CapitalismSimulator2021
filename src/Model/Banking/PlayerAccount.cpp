@@ -1,8 +1,14 @@
+#include "IAccount.h"
 #include "PlayerAccount.h"
-#include "ITransaction.h"
+#include "Transaction.h"
+#include "IAmount.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
+
+int PlayerAccount::AvailableWealth() {
+    return m_wealth;
+}
 
 void PlayerAccount::AddToAccount(IAmount *amount) {
     m_wealth += amount->GetCashAmount();
@@ -17,8 +23,8 @@ void PlayerAccount::RemoveFromAccount(IAmount *amount) {
 void PlayerAccount::PerformTrade(IAccount *otherAccount,
                           IAmount *otherAccountOffer,
                           IAmount *otherAccountRequest) {
-    ITransaction toThisAccount(otherAccount, this, otherAccountOffer);
-    ITransaction fromThisAccount(this, otherAccount, otherAccountRequest);
+    Transaction toThisAccount(otherAccount, this, otherAccountOffer);
+    Transaction fromThisAccount(this, otherAccount, otherAccountRequest);
     toThisAccount.Execute();
     fromThisAccount.Execute();
     return;

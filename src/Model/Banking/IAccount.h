@@ -9,15 +9,19 @@
 #define IACCOUNT_H_
 
 #include <QList>
-#include "IAmount.h"
 
 namespace CapitalismSimulator {
 namespace Banking {
 
+class IAmount;
+
 class IAccount {
 public:
-    IAccount(int wealth);
+    IAccount() {};
+    virtual ~IAccount() {};
 
+    // Get the amount of cash available
+    virtual int AvailableWealth() = 0;
     // Add assets to this account
     virtual void AddToAccount(IAmount* amount) = 0;
     // Remove assets from this account

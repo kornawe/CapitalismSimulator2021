@@ -8,7 +8,9 @@ TEMPLATE = app
 
 INCLUDEPATH += ../../src/Model
 
-SOURCES +=  tst_testamount.cpp
+SOURCES +=  tst_testtransaction.cpp \
+    ../../src/Model/Banking/Transaction.cpp \
+    ../../src/Model/Banking/PlayerAccount.cpp
 
 HEADERS += \
-    tst_testamount.h
+    tst_testtransaction.h

@@ -9,18 +9,20 @@
 #define ITRANSACTION_H_
 
 #include <QString>
-#include "IAccount.h"
-#include "IAmount.h"
-#include "Model/Command/ICommand.h"
+#include "../Command/ICommand.h"
 
 using namespace CapitalismSimulator::Command;
 
 namespace CapitalismSimulator {
 namespace Banking {
 
+class IAccount;
+class IAmount;
+
 class ITransaction : public ICommand {
 public:
-    ITransaction(IAccount *from, IAccount *to, IAmount *amount);
+    ITransaction() {};
+    virtual ~ITransaction() {}
 
     IAmount* Amount() const {
         return m_amount;
@@ -31,18 +33,11 @@ public:
     IAccount* To() const {
         return m_to;
     }
-
-    // ICommand method overrides
-    void Execute() override;
-    void Undo() override;
-    void Redo() override;
 protected:
     IAccount* m_from;
     IAccount* m_to;
     IAmount* m_amount;
     QString m_memo;
-private:
-    ITransaction() {};
 };
 }
 }  // namespace CapitalismSimulator::Banking

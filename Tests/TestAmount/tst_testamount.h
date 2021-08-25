@@ -4,7 +4,7 @@
 #include <QtTest>
 
 // add necessary includes here
-#include "../../src/Model/Banking/IAmount.h"
+#include "Banking/IAmount.h"
 
 using namespace CapitalismSimulator::Banking;
 
@@ -13,14 +13,15 @@ class TestAmount : public QObject
     Q_OBJECT
 
 public:
-    TestAmount();
+    TestAmount() {};
     ~TestAmount() {};
 
 private slots:
-    void cleanupTestCase();
-    void testCanGetCashValue();
-    void testCanGetPropertiesList();
-    void testCanGetCardsList();
+    void init();
+    void cleanup();
+    void GetCashAmount_returnsValuePassedIn();
+    void GetProperties_returnsListOfPropertiesPassedIn();
+    void GetCards_returnsListOfCardsPassedIn();
 
 private:
     // Component Under Test

@@ -13,30 +13,33 @@ SOURCES += \
     Model/Banking/PlayerAccount.cpp \
     Model/Banking/Transaction.cpp \
     Model/Chance/Dice.cpp \
+    Model/Board/NormalBoard.cpp \
     Model/Chance/Die.cpp \
+    Model/Location/Jail.cpp \
+    Model/Player/IPlayer.cpp \
     Model/main.cpp
 
 HEADERS += \
+    Model/Banking/Bank.h \
     Model/Banking/IAccount.h \
     Model/Banking/IAmount.h \
     Model/Banking/IBank.h \
     Model/Banking/ITransaction.h \
     Model/Banking/PlayerAccount.h \
     Model/Chance/Dice.h \
+    Model/Banking/Transaction.h \
+    Model/Board/IBoard.h \
+    Model/Board/NormalBoard.h \
     Model/Chance/Die.h \
     Model/Chance/IDice.h \
     Model/Chance/IDie.h \
     Model/Command/ICommand.h \
-    Model/IAccount.h \
-    Model/IBoard.h \
-    Model/IJailStay.h \
     Model/IMovement.h \
-    Model/IPlayer.h \
-    Model/ITransaction.h \
-    Model/Location/IJail.h \
     Model/Location/ILocation.h \
     Model/Location/IProperty.h \
-    Model/Location/IUtility.h
+    Model/Location/IUtility.h \
+    Model/Location/Jail.h \
+    Model/Player/IPlayer.h
 
 FORMS +=
 
