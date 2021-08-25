@@ -28,7 +28,7 @@ void TestDie::Roll_ShouldProduceAllPosibilities()
     }
 
     for(int i = 0; i < sides*100; i++) {
-        int roll = cut->Roll();
+        int roll = cut.Roll();
         QVERIFY(roll > 0);
         QVERIFY(roll <= maxRoll);
         found[roll] = true;
