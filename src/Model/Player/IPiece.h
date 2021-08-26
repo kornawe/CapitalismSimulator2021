@@ -15,14 +15,13 @@ namespace Player {
 
 class IPiece {
 public:
-
-    IPiece(QString name);
-
     QString Name(void);
 
-    virtual Location::ILocation* CurrentLocation(void) = 0;
+    virtual Location::ILocation* CurrentLocation(void) const = 0;
 
 protected:
+    IPiece(QString name);
+
     Location::ILocation* m_location;
 
 private:

@@ -13,12 +13,17 @@ IPlayer::~IPlayer() {
     delete m_account;
 }
 
-QString IPlayer::Name(void) {
+QString IPlayer::Name(void) const {
     return m_name;
 }
 
-IAccount * IPlayer::Account(void) {
+IAccount * IPlayer::Account(void) const {
     return m_account;
 }
+
+IPiece* IPlayer::Piece(void) const {
+    return m_piece;
+}
+
 }
 }

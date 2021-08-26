@@ -18,6 +18,9 @@ namespace Banking {
 }
 using namespace Banking;
 
+// Forward delcaration
+class IPiece;
+
 namespace Player {
 
 class IPlayer {
@@ -29,15 +32,18 @@ public:
     /// \brief Accessor for the Player's name.
     /// \return the name assigned to this Player
     ///
-    QString Name(void);
+    QString Name(void) const;
     ///
     /// \brief Accessor for the Player's account.
     /// \return the account associated with this Player.
     ///
-    IAccount * Account(void);
+    IAccount* Account(void) const;
+
+    IPiece* Piece(void) const;
 protected:
     QString m_name;
     IAccount *m_account;
+    IPiece* m_piece;
 };
 }
 }
